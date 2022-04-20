@@ -1,0 +1,19 @@
+programa
+{
+	
+	funcao inicio()
+	{
+	inteiro i, j
+	
+		escreva("Informe dois valores:\n")
+		leia(i, j)
+
+		se ( i > j e i != j ) 
+			escreva( j , " ", i )
+		senao se ( j > i e j != i )
+			escreva( i, " ", j )
+		senao
+			escreva("\nValores Iguais!")
+
+	}
+}

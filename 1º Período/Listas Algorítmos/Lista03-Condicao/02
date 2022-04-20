@@ -1,0 +1,19 @@
+programa
+{
+	
+inclua biblioteca Matematica --> mat
+	
+	funcao inicio()
+	{
+		inteiro i, j
+
+		i = 1 
+
+		enquanto ( i <= 5 ){
+			escreva("\nInforme um número: ")
+			leia(j)
+			escreva("A raiz quadrada de " + j + " é: ", mat.raiz(j,2))
+			i++
+		}
+	}
+}

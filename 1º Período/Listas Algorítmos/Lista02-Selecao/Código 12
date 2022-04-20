@@ -1,0 +1,30 @@
+programa
+{
+	
+	funcao inicio()
+	{
+		inteiro a, b, c, r
+
+		escreva("Informe 3 valores:\n")
+		leia(a, b, c)
+		
+		r = 0
+		se ( a > b e a > c)
+			se (b > c)
+				r = b
+			senao
+				r = c
+		senao se ( b > a e b > c )
+			se ( a > c )
+				r = a
+			senao
+				r = c
+		senao se ( c > a e c > b )
+			se ( a > b)
+				r = a
+			senao
+				r = b	
+
+		escreva("O Vice Campeão é: ", r)
+	}
+}

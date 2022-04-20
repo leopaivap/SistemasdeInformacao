@@ -1,0 +1,19 @@
+programa
+{
+
+funcao inicio()
+{
+inteiro: i, j, k, r
+
+escreva("Informe o 1º valor: ")
+leia(i)
+escreva("Informe o 1º valor: ")
+leia(j)
+escreva("Informe o 1º valor: ")
+leia(k)
+
+r = i+j+k
+
+escreva("O resultado da soma é:" + r)
+}
+}

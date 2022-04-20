@@ -1,0 +1,45 @@
+programa
+{
+	
+	funcao inicio()
+	{
+		
+		inteiro sx, id, i, cntm, cntf, cnt, op
+		real alt, mdm, mdf, mdi
+		cadeia nm
+
+		cnt = 0
+		cntm = 0
+		cntf = 0
+		mdm = 0.0
+		mdf = 0.0
+		mdi = 0.0
+		
+		faca{
+			escreva("Informe o nome do atleta: ")
+			leia(nm)
+			escreva("\nInforme o sexo do atleta(1-Masc/2-Fem): ")
+			leia(sx)
+			escreva("\nInforme a idade do atleta: ")
+			leia(id)
+			escreva("\nInforme a altura do atleta: ")
+			leia(alt)
+			
+			mdi = mdi + id	
+			cnt++
+			
+			se ( sx == 1 ){
+				mdm = mdm + alt
+				cntm++
+				}senao se (sx == 2){
+					mdf = mdf + alt
+					cntf++
+				}
+				
+			escreva("\nDeseja cadastrar outro atleta?(1-Sim/0-Não): ")
+			leia(op)
+		}enquanto ( op != 0)
+
+		escreva("Média altura Masculina: ", mdm/cntm, "\nMédia altura Feminina: ", mdf/cntf, "\nMédia idade geral: ", mdi/cnt)
+	}
+}

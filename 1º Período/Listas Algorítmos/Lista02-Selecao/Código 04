@@ -1,0 +1,18 @@
+programa
+{
+	
+	funcao inicio()
+	{
+	real i, j
+	
+		escreva("Informe o Salário: ")
+		leia(i)
+		escreva("Informe o valor da prestação: ")
+		leia(j)
+
+		se ( j <= i*0.3 )
+			escreva("Empréstimo poderá ser realizado!")
+		senao
+			escreva("Empréstimo não poderá ser realizado!")
+	}
+}

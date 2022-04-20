@@ -1,0 +1,22 @@
+programa
+{
+
+funcao inicio()
+{
+inteiro: i, j, c, r
+
+escreva("Informe a base: ")
+leia(i)
+escreva("Informe o expoente: ")
+leia(j)
+
+r = i
+c = 1
+enquanto( c < j ){
+r = r * i
+c = c + 1
+}
+
+escreva( i + " ^ " + j + " = " + r )
+}
+}

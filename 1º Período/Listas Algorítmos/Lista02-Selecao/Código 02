@@ -1,0 +1,18 @@
+programa
+{
+	
+	funcao inicio()
+	{
+	inteiro n
+	
+		escreva("Informe um Número: ")
+		leia(n)
+
+		se ( n%2 == 0 ) 
+			escreva("\nNúmero Par!")
+		senao se ( n%2 != 0)
+			escreva("\nNúmero Ímpar!")
+		senao
+			escreva("\nNúmero Inválido!")
+	}
+}

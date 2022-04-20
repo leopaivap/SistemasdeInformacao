@@ -1,0 +1,18 @@
+programa
+{
+
+	funcao inicio()
+	{
+	real a, b, c
+
+	escreva("Informe os três lados do triângulo:\n")
+	leia(a, b, c)
+
+	se ( a == b e a == c e b == c)
+		escreva("\nTriângulo Equilátero")
+	senao se ( (a == b e a != c) ou ( b == c e b != a) ou ( c == a e c != b))
+		escreva("\nTriângulo Isósceles")
+	senao
+		escreva("\nTriângulo Escaleno")
+	}
+}

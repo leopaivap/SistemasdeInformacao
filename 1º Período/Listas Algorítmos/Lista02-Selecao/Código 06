@@ -1,0 +1,29 @@
+programa
+{
+	inclua biblioteca Matematica --> mat
+	
+	funcao inicio()
+	{
+	inteiro op, n1, n2, s
+	real rz, s1
+	
+	escreva("Menu de opções:\n  1 - Somar dois números;\n  2 - Raiz quadrada de um número.\nDigite a opção desejada: ")
+	leia(op)
+
+	se ( op == 1 ) {
+		escreva("\n\nInforme dois valores:\n")
+		leia( n1, n2 )
+		s = n1 + n2
+		escreva("Soma: ", s)
+	}
+	senao se ( op == 2 ) {
+		escreva("\n\nInforme um valor: ")
+		leia(rz)
+		
+		s1 = mat.raiz(rz, 2)
+		escreva("Raiz Quadrada: ", s1)
+		}
+	senao
+		escreva("Opção Inválida!")
+	}
+	}

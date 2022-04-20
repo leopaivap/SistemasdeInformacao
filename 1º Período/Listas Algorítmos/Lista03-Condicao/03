@@ -1,0 +1,18 @@
+programa
+{
+	
+	funcao inicio()
+	{
+		inteiro i, j
+	i = 1
+	j = 0
+	faca{
+		escreva("\nInforme um número: ")
+		leia(i)
+		se ( i >= 50 e i <= 100)
+			j++
+	}enquanto( i != 0)
+
+	escreva("Foram digitados " + j + " números entre 50 e 100")
+	}
+}

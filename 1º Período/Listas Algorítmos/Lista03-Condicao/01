@@ -1,0 +1,17 @@
+programa
+{
+	
+	funcao inicio()
+	{
+		inteiro i, soma
+
+		i = 1 
+		soma = 0
+		enquanto ( i <= 100 ){
+			escreva(i + " - ")
+			soma = soma + i
+			i++
+		}
+		escreva("\nSoma: ", soma)
+	}
+}

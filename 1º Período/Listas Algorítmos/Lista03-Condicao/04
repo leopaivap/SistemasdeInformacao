@@ -1,0 +1,21 @@
+programa
+{
+	inclua biblioteca Util
+	
+	funcao inicio()
+	{
+		inteiro i, j, num
+	i = 1
+	j = 1
+	
+	num = Util.sorteia(0, 20)
+	faca{
+		escreva("\nAcerte o Número: ")
+		leia(i)
+		se ( i != num)
+			j++
+	}enquanto( i != num)
+
+	escreva("Você Acertou!!!\nTentativas: ", j)
+	}
+}

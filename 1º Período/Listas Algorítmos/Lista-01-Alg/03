@@ -1,0 +1,23 @@
+programa
+{
+
+funcao inicio()
+{
+real: x1, x2, x3, x4, x5, x6, x7
+
+escreva("Informe o 1º valor:")
+leia(x1)
+escreva("\nInforme o 2º valor:")
+leia(x2)
+escreva("\nInforme o 3º valor:")
+leia(x3)
+escreva("\nInforme o 4º valor:")
+leia(x4)
+
+x5 = (x1 + x2)
+x6 = (x3 + x4)
+x7 = (x5 / x6)
+
+escreva("\nO resultado de (X1+X2) / (X3+X4) é: " + x7)
+}
+}

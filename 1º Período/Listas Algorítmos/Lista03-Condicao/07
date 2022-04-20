@@ -1,0 +1,21 @@
+programa
+{
+	
+	funcao inicio()
+	{
+		inteiro i
+		real ch, jc
+		
+		i = 0
+		ch = 1.5
+		jc = 1.1
+
+		faca{
+			ch = ch + 0.02
+			jc = jc + 0.04
+			i++
+		}enquanto ( ch > jc)
+
+			escreva("Foram necessários ", i, " anos para Juca ser maior que Chico")
+	}
+}

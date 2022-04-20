@@ -1,0 +1,17 @@
+programa
+{
+
+funcao inicio()
+{
+real: i, j
+
+escreva("Informe o valor em Polegadas:")
+leia(i)
+
+j = i*2.54
+
+escreva("\nO resultado em centímetros é:" + j + "cm")
+
+escreva("\nPolegadas:" + i)
+}
+}

@@ -1,0 +1,16 @@
+programa
+{
+
+funcao inicio()
+{
+real: i, j
+
+escreva("Informe em reais: ")
+leia(i)
+
+j = i * 2.3
+
+escreva("\nO valor em dólar é: $" +  j)
+
+}
+}

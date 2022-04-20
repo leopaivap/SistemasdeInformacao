@@ -1,0 +1,19 @@
+programa
+{
+
+	funcao inicio()
+	{
+	inteiro i
+
+	escreva("Informe sua Idade: ")
+	leia(i)
+
+	se ( i < 16)
+		escreva("\nNão Eleitor")
+	senao se ( (i >= 16 e i < 18) ou i >= 65)
+		escreva("\nEleitor Facultativo")
+	senao
+		escreva("\nEleitor Obrigatório")
+	
+	}
+}

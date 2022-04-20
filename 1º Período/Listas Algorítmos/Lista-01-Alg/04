@@ -1,0 +1,21 @@
+programa
+{
+
+funcao inicio()
+{
+inteiro: a, b, c, x, r
+
+escreva("Informe o 1º valor:")
+leia(a)
+escreva("\nInforme o 2º valor:")
+leia(b)
+escreva("\nInforme o 3º valor:")
+leia(c)
+escreva("\nInforme o 4º valor:")
+leia(x)
+
+r = ((a*b*c)/x)
+
+escreva("\nO resultado de (A * B * C)/X é: " + r)
+}
+}

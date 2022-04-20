@@ -1,0 +1,32 @@
+programa
+{
+	
+	funcao inicio()
+	{
+		inteiro i, cnt, j, x, cnt2
+		real md1, md2
+
+		i = 1
+		cnt = 0 
+		j = 0
+		x = 0
+		cnt2 = 0
+		
+		escreva("Informe valores:\n")
+		faca {
+			leia(i)
+			se (i%2 == 0){
+				j = j + i
+				cnt++
+			} senao se( i%2 != 0 e i > 0){
+				x = x + i
+				cnt2++
+				}
+			
+			}enquanto( i >= 0)
+
+			md1 = j/cnt
+			md2 = x/cnt2
+			escreva("\nMédia Pares: ", md1, "\nMédias Ímpares: ", md2)
+	}
+}

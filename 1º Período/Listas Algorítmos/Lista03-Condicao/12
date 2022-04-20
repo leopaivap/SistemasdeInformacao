@@ -1,0 +1,36 @@
+programa
+{
+	
+	funcao inicio()
+	{
+		inteiro n, m, i, cnt, cnt2, j, j1, v
+
+		cnt = 1
+		j1 = 0
+		v = 1
+		
+		escreva("Informe o número de competidores: ")
+		leia(n)
+		escreva("\nInforme o número de voltas: ")
+		leia(m)
+
+		enquanto( cnt-1 < n ){
+			j = 0
+			cnt2 = 0
+			escreva("\n\nInforme os tempos do competidor(a) ", cnt, ":\n")
+			enquanto(  cnt2 < m ){
+				leia(i)
+				j = j + i
+				cnt2++
+			}
+			se( j > j1 ){
+				v = cnt
+			} senao {
+				j1 = j
+			}
+			cnt++
+		}
+
+			escreva("O competidor vencedor foi: ", v)
+	}
+}

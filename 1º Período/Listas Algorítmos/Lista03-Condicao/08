@@ -1,0 +1,25 @@
+programa
+{
+	
+	funcao inicio()
+	{
+		inteiro mat, op
+		real n1, n2
+		
+		faca{
+			escreva("Informe o número de matrícula do aluno: ")
+			leia(mat)
+			escreva("Informe as duas notas:\n")
+			leia(n1, n2)
+
+			se ((n1 + n2)/2 >= 6){
+				escreva("Aluno: ", mat, " - Aprovado")
+				}senao{
+					escreva("Aluno: ", mat, " - Reprovado")
+				}
+			
+			escreva("\nDeseja fazer outra consulta?(1-Sim/0-Não): ")
+			leia(op)
+		}enquanto ( op != 0)
+	}
+}

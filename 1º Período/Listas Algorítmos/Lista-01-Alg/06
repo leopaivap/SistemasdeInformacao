@@ -1,0 +1,21 @@
+programa
+{
+
+funcao inicio()
+{
+real: v, j, p
+inteiro: t
+
+escreva("Informe o valor da prestação: ")
+leia(v)
+escreva("\nInforme a taxa de juros: ")
+leia(j)
+escreva("\nInforme o tempo de atraso(em dias): ")
+leia(t)
+
+p = v + ( v * (j/100) * t)
+
+escreva("\nO valor da prestação em atraso é: " +  p )
+
+}
+}

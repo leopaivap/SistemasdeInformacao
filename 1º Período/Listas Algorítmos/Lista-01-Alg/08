@@ -1,0 +1,20 @@
+programa
+{
+
+funcao inicio()
+{
+real: t, v, d, lt
+
+escreva("Informe o tempo da viagem (horas): ")
+leia(t)
+escreva("\nInforme a velocidade média da viagem (km): ")
+leia(v)
+
+d = t * v
+lt = d / 15
+
+
+escreva("\nResumo da Viagem: \n Velocidade Média: " + v + "km/h \n Tempo Gasto: " + t + "h \n Distância Percorrida: " + d + "km \n Litros Utilizados: " + lt + "L"  )
+
+}
+}

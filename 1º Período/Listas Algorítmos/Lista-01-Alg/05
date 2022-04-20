@@ -1,0 +1,15 @@
+programa
+{
+
+funcao inicio()
+{
+real: f, c
+
+escreva("Informe a temperatura em Celsius: ")
+leia(c)
+
+f = (9* c +160)/5
+
+escreva("\nO resultado em Fahrenheit é " + f)
+}
+}

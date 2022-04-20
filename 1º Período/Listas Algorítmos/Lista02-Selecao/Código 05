@@ -1,0 +1,24 @@
+programa
+{
+	
+	funcao inicio()
+	{
+	real i, j, m, n
+	
+		escreva("Informe as três notas:\n")
+		leia( i, j, n)
+
+		m = ( i + j + n )/3
+		
+		se ( m >= 8.0 )
+			escreva("Média: ", m, "\nConceito A")
+		senao se ( m >= 7.0 e m < 8.0 )
+			escreva("Média: ", m, "\nConceito B")
+		senao se ( m >= 6.0 e m < 7.0 )
+			escreva("Média: ", m, "\nConceito C")
+		senao se ( m >= 5.0 e m < 6.0 )
+			escreva("Média: ", m, "\nConceito D")
+		senao se ( m >= 0.0 e m < 5.0 )
+			escreva("Média: ", m, "\nConceito E")
+	}
+}

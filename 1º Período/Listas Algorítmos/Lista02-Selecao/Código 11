@@ -1,0 +1,39 @@
+programa
+{
+	
+	funcao inicio()
+	{
+		inteiro i, j, c
+		
+		escreva("Informe a quantidade de água gasta(m³): ")
+		leia(i)
+
+		se ( i <= 10)
+			j = 7
+		senao se ( i >= 11 e i <= 30){
+			j = 7
+			c = 10
+			enquanto (c != i){
+				j = j + 1
+				c = c + 1
+			}	
+		}
+		senao se ( i >= 31 e i <= 100 ){
+			j = 27
+			c = 30
+			enquanto (c != i){
+				j = j + 2
+				c = c + 1
+			}	
+		}
+		senao {
+			j = 167
+			c = 100
+			enquanto (c != i){
+				j = j + 5
+				c = c + 1
+			}	
+		}
+		escreva("\nO valor da conta é: R$", j)
+	}
+}

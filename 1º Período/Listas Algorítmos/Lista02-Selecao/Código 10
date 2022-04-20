@@ -1,0 +1,27 @@
+programa
+{
+
+	funcao inicio()
+	{
+	inteiro i, j
+	cadeia n1, n2
+
+	escreva("Informe o nome do primeiro time: ")
+	leia(n1)
+	escreva("Informe a quantidade de gols do primeiro time: ")
+	leia(i)
+
+	escreva("Informe o nome do segundo time: ")
+	leia(n2)
+	escreva("Informe a quantidade de gols do segundo time: ")
+	leia(j)
+
+	escreva("\nResultado: ", i, "x", j, "\n")
+	se ( i > j )
+		escreva(n1,": 3 Pontos\n", n2, ": 0 Pontos")
+	senao se ( j > i)
+		escreva(n1,": 0 Pontos\n", n2, ": 3 Pontos")
+	senao
+		escreva(n1,": 1 Ponto\n", n2, ": 1 Ponto")
+	}
+}

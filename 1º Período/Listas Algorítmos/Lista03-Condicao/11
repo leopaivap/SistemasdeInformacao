@@ -1,0 +1,23 @@
+programa
+{
+	
+	funcao inicio()
+	{
+		inteiro cnt
+		real i
+
+		cnt = 0
+		
+		escreva("Informe a massa(g): ")
+		leia(i)
+
+		faca {
+			se( i > 0.1){
+				i = i - (i*0.25)
+				cnt++
+			}
+		}enquanto( i > 0.1)
+
+			escreva("\nSão necessários ", cnt*30, " segundos!")
+	}
+}
