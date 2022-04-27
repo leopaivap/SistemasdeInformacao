@@ -1,0 +1,23 @@
+programa
+{
+	
+	funcao inicio()
+	{
+		inteiro j, i, s, sm
+
+		escreva("Informe o limite inferior: ")
+		leia(i)
+		escreva("Informe o limite superior: ")
+		leia(s)
+
+		sm = 0
+		
+		para ( j = i; j <= s; j++ ) {
+			se ( j % 2 == 0 ) {
+				escreva( j, "\n")
+				sm += j	
+			}
+		}
+		escreva("\nSomatório: ", sm )
+	}
+}
