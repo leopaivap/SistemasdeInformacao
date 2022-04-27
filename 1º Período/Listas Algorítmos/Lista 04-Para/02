@@ -1,0 +1,14 @@
+programa
+{
+	
+	funcao inicio()
+	{
+		inteiro j
+		
+		escreva("Inteiros de 100 a 200: \n")
+		para( j = 100; j <= 200; j++ ){
+			escreva(j, "\n")
+	
+		}
+	}
+}
