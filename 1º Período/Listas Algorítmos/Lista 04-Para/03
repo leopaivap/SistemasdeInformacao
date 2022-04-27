@@ -1,0 +1,18 @@
+programa
+{
+	
+	funcao inicio()
+	{
+		inteiro j, i, s
+
+		s = 5
+		escreva("Informe o Múltiplo de 5: \n")
+		leia(i)
+		
+		para( j = 1; j <= i; j++ ){
+			s = 5*j
+			escreva(s, "\n")
+	
+		}
+	}
+}
