@@ -1,0 +1,18 @@
+programa
+{
+	
+	funcao inicio()
+	{
+		inteiro i, j, s
+
+		escreva("Informe um número: ")
+		leia(i)
+		s = i
+		
+		escreva(" \nTabuada de Soma \n")
+		para( j = 0; j < 10; j++ ){
+			escreva(s, "\n")
+			s = s + i
+		}
+	}
+}
