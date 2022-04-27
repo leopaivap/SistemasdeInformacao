@@ -1,0 +1,22 @@
+programa
+{
+	
+	funcao inicio()
+	{
+		inteiro j, i
+		logico a = verdadeiro
+
+		escreva("Informe um Número: ")
+		leia(i)
+		
+		para ( j = 2; j < i; j++ ) {
+			se ( i % j == 0 )
+				a = falso
+			pare
+		}
+		se (a)
+			escreva("\nNúmero Primo!")
+		senao
+			escreva ("\nNúmero Não Primo!")
+	}
+}
