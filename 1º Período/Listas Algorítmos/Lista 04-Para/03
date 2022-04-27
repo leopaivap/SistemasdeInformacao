@@ -3,16 +3,14 @@ programa
 	
 	funcao inicio()
 	{
-		inteiro j, i, s
+		inteiro j, i
 
-		s = 5
-		escreva("Informe o Múltiplo de 5: \n")
+		escreva("Informe um Número: \n")
 		leia(i)
 		
 		para( j = 1; j <= i; j++ ){
-			s = 5*j
-			escreva(s, "\n")
-	
+			se ( j % 5 == 0)	
+				escreva(j, "\n")
 		}
 	}
 }
