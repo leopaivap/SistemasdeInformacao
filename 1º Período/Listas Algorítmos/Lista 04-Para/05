@@ -1,0 +1,18 @@
+programa
+{
+	
+	funcao inicio()
+	{
+		inteiro j, i, s
+
+		escreva("Informe um Número: ")
+		leia(i)
+
+		s = 1
+		
+		para ( j = 1; j <= i; j++ ) {
+			s = s * j
+		}
+		escreva("\nFatorial: ", s )
+	}
+}
