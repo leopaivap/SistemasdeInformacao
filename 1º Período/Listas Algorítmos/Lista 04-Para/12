@@ -1,0 +1,23 @@
+programa
+{
+	
+	funcao inicio()
+	{
+		inteiro j = 0, i, c, n
+
+		escreva("Informe o número de dias: ")
+		leia(n)
+
+		para (c = 1; c <= n; c++){
+			
+			escreva("\nInforme um Número de acessos: ")
+			leia(i)
+			
+			j += i
+
+			se ( j >= 1000000)
+				pare
+		}
+		escreva("\nForam necessários ", c, " dias para ganhar o prêmio!")
+	}
+}
