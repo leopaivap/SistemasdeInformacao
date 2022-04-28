@@ -1,0 +1,39 @@
+programa
+{
+	
+	funcao inicio()
+	{
+		inteiro i, sx, cntm = 0, cntf = 0
+		real alt, ma = 0.0, mn = 0.0, mdf = 0.0, mdm = 0.0
+		
+		para (i = 1; i <= 10; i++){
+			
+			escreva("\nInforme a altura da pessoa ", i, ": ")
+			leia(alt)	
+			escreva("\nInforme o sexo da pessoa ", i, "(1 - Masc / 2 - Fem): ")
+			leia(sx)
+
+			se (i == 1){
+				ma = alt
+				mn = alt
+			} senao{
+				
+				se ( alt > ma)
+					ma = alt
+				se (alt < mn)
+					mn = alt	
+			}
+
+			se (sx == 1){
+				mdm += alt
+				cntm++	
+			} senao {
+				mdf += alt
+				cntf++	
+			}
+		}
+		
+		escreva("\nMenor Altura: ", mn, "\nMaior Altura: ", ma, "\nMédia Altura Masculina: ", mdm/cntm, "\nMédia Altura Feminina: ", mdf/cntf)
+		
+	}
+}
