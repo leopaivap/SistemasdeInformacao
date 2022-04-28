@@ -1,0 +1,17 @@
+programa
+{
+	
+	funcao inicio()
+	{
+		inteiro i, b, ex, j = 1
+		
+		escreva("Informe a base da potência: ")
+		leia(b)
+		escreva("\nInforme o expoente da potência: ")
+		leia(ex)
+
+		para(i = 1; i <= ex; i++)
+			j *= b
+		escreva("\nResultado da Potêcia: ", j)
+	}
+}
