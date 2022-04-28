@@ -1,0 +1,28 @@
+programa
+{
+	
+	funcao inicio()
+	{
+		inteiro j, i, c, n
+		logico a
+
+		escreva("Informe o número de testes: ")
+		leia(n)
+
+		para (c = 0; c < n; c++){
+			escreva("\n\nInforme um Número: ")
+			leia(i)
+			
+			a = verdadeiro
+			para ( j = 2; j < i; j++ ) {
+				se ( i % j == 0 )
+					a = falso
+				pare
+			}
+			se (a)
+				escreva( i, " é Primo!")
+			senao
+				escreva ( i, " é Não Primo!")
+		}
+	}
+}
