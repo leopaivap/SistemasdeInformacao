@@ -1,0 +1,19 @@
+programa
+{
+	
+	funcao inicio()
+	{
+		inteiro i, j, at = 1, f = 0, ant = 0, ax = 0
+		
+		escreva("Informe um número: ")
+		leia(j)
+
+		para(i = 1; i <= j; i++){
+			f = at + ant
+			ax = at
+			at = f
+			ant = ax
+			escreva(f, " ")
+		}
+	}
+}
