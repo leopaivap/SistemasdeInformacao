@@ -1,0 +1,24 @@
+programa
+{
+	
+	funcao inicio()
+	{
+		inteiro j = 0, i, c, cp, np, i1
+
+		escreva("Informe o número de competidores(max = 100): ")
+		leia(cp)
+		escreva("Informe o número mínimo de pontos(max = 1000): ")
+		leia(np)
+		
+
+		para (c = 1; c <= cp; c++){
+			
+			escreva("\nInforme o Número de Pontos(max = 400):\n")
+			leia(i, i1)
+
+			se ( i + i1 >= np)
+				j++
+		}
+		escreva("\nCompetidores Convidados: ", j)
+	}
+}
