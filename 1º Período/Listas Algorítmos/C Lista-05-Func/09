@@ -1,0 +1,10 @@
+int med( float n1, float n2, float n3, float frq ){
+	float md;
+	md = (n1+n2+n3)/3;
+	if ( md >= 6 && frq >= 75.0)
+		return 1;
+	else if ( md >= 4 && md < 6 &&   frq >= 75.0)
+		return 2;
+	else if ( md < 4 || frq < 75)
+		return 3;
+}
