@@ -1,0 +1,8 @@
+int soma( int n ){
+	int i, sm = 0, v;
+	for (i = 1; i <= n; i++){
+		scanf("%d", &v);
+		sm += v;
+	}
+	return sm;
+}
