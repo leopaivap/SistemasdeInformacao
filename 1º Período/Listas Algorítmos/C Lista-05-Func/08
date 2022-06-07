@@ -1,0 +1,9 @@
+//Considerando Masculino = 0 e Feminino = 1.
+float peso( float alt, int sx ){
+	float p;
+	if(sx == 0)
+		p = (72.7*alt) - 58;
+	else if (sx == 1)
+		p = (62.1*alt) - 44.7;
+	return p;
+}
