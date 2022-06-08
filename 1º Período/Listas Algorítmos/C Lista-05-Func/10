@@ -1,0 +1,22 @@
+float nota( float n1, float n2, float n3, float n4, float n5 ){
+	float n[5], aux, nf;
+	int i, j;
+	n[0] = n1;
+	n[1] = n2;
+	n[2] = n3;
+	n[3] = n4;
+	n[4] = n5;
+	
+	for ( i = 1; i <= 5; i++ ){
+		for ( j = 0; j < 4; j++ ) {
+			if( n[j] > n[j+1] ) {
+				aux = n[j];
+				n[j] = n[j+1];
+				n[j+1] = aux;
+			}
+		}
+	}
+	
+	nf = n[1] + n[2] + n[3];
+	return nf;
+}
