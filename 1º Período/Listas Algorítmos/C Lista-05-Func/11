@@ -1,0 +1,6 @@
+int pedagio( int l, int d, int k, int p ){
+	int t, i, pd;
+	pd = l/d;
+	t = ( l*k ) + ( pd*p );
+	return t;
+}
