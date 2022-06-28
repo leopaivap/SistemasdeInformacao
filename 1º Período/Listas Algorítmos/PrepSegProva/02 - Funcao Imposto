@@ -1,0 +1,10 @@
+float imp(float sal){
+	if(sal >= 1903.99 && sal <= 2826.65)
+		return sal*0.075;
+	else if (sal >= 2826.66 && sal <= 3751.05)
+		return sal*0.15;
+	else if (sal >= 3751.06 && sal <= 4664.68)
+		return sal*0.225;
+	else if (sal > 4664.68)
+		return sal*0.275;
+}
