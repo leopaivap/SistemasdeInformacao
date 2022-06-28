@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+	float sal, r;
+	int cnt = 0, q, op = 1;
+	
+	printf("Informe o Salario Minimo: R$");
+	scanf("%f", &sal);
+	
+	do{
+		system("cls");
+		printf("Informe a renda familiar: R$");
+		scanf("%f", &r);
+		printf("\nInforme a quantidade de pessoas na familia: ");
+		scanf("%d", &q);
+		
+		if(r < sal/2){
+			printf("\nContemplado no Auxilio!");
+			cnt++;
+		}
+		
+		printf("\nDeseja continuar? (1 - Sim / 2 - Nao)");
+		scanf("%d", &op);
+		
+	}while(op == 1);
+	
+	system("cls");
+	printf("Quantidade de Alunos Contemplados: %d\n", cnt);
+	return 0;
+}
