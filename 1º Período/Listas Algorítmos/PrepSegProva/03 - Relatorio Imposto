@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+float imp(float sal){
+	if(sal >= 1903.99 && sal <= 2826.65)
+		return sal*0.075;
+	else if (sal >= 2826.66 && sal <= 3751.05)
+		return sal*0.15;
+	else if (sal >= 3751.06 && sal <= 4664.68)
+		return sal*0.225;
+	else if (sal > 4664.68)
+		return sal*0.275;
+}
+
+int main(){
+	int q, i;
+	float s, cnt;
+	
+	printf("Informe a quantidade de funcionarios: ");
+	scanf("%d", &q);
+	
+	float v[q];
+	
+	system("cls");
+	
+	for( i = 0; i < q; i++ ){
+		printf("Informe o salario do funcionario %d: R$", i+1, "\n");
+		scanf("%f", &s);
+		v[i] = imp(s);
+	}
+	
+	system("cls");
+	printf("*** Valores Retidos ***\n");
+	
+	for( i = 0; i < q; i++){
+		printf(" R$%.2f |", v[i]);
+		cnt += v[i];
+	}
+	printf("\nSoma dos Impostos: R$%.2f\n", cnt);
+
+	return 0;
+}
