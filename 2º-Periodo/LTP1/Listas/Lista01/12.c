@@ -13,8 +13,8 @@ int main(){
 	int i, j, l;
 	
 	printf("Informe o valor das notas:\n");
-//	for(i = 0; i < 5; i++)
-//		scanf("%f", &v[i]);
+	for(i = 0; i < 5; i++)
+		scanf("%f", &v[i]);
 		
 	for(i = 5; i > 0; i--){
 		for( j = 0; j < i ; j++){
