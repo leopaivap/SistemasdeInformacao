@@ -1,22 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package banco;
 
-/**
- *
- * @author tulio
- */
 public class Conta {
 // atributos ou variáveis de instância
-    Cliente objCliente1 = new Cliente(); // criei um objeto
-    Cliente objCliente2; // criei uma referência
+    Cliente objCliente1 = new Cliente(); 
+    Cliente objCliente2; 
     private double saldo;
     private double  limite;
     private int numero;
-    private static int totalDeContas; // variável static pertence a classe
+    private static int totalDeContas; 
 
     public static int getTotalDeContas() {
         return Conta.totalDeContas;
@@ -49,14 +40,14 @@ public class Conta {
         return this.saldo;
     }
 
-    public void deposita(double saldo) { // método
+    public void deposita(double saldo) { 
         this.saldo = this.saldo + saldo;
         System.out.println("Depósito realizado para: "+objCliente1.getNome());
         
        
     }
 
-    public boolean saca(double saldo) { // método
+    public boolean saca(double saldo) { 
         if (this.saldo >= saldo) {
             this.saldo = this.saldo - saldo;
             System.out.println("Saque realizado com sucesso");
