@@ -1,6 +1,6 @@
 package banco;
 
-public class Conta {
+abstract public class Conta {
 // atributos ou variáveis de instância
     Cliente objCliente1 = new Cliente(); 
     Cliente objCliente2; 
@@ -20,6 +20,10 @@ public class Conta {
     public void setNumero(int numero) {
         this.numero = numero;
     }
+        
+    public double getSaldo(){
+        return this.saldo;
+    }
     
     Conta(){ // construtor padrão modificado
         System.out.println("Construindo uma conta");
@@ -32,19 +36,12 @@ public class Conta {
     }
     Conta(double saldo, int numero){
         this(saldo); //invoca o construtor anterior
-        this.numero = numero;
-        
-    }
-    
-    public double getSaldo(){
-        return this.saldo;
+        this.numero = numero;   
     }
 
     public void deposita(double saldo) { 
         this.saldo = this.saldo + saldo;
         System.out.println("Depósito realizado para: "+objCliente1.getNome());
-        
-       
     }
 
     public boolean saca(double saldo) { 
@@ -67,8 +64,6 @@ public class Conta {
         }
     }
     
-    void atualiza(double taxa){
-        this.saldo += this.saldo*taxa;
-    }
-
+    abstract void atualiza(double taxa);
+    
 }

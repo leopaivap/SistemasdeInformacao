@@ -15,7 +15,7 @@ public class Programa {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
         
-        Conta minhaConta = new Conta();
+        Conta minhaConta = new ContaCorrente();
         //minhaConta.saldo = 5000;
         minhaConta.deposita(5000);
         

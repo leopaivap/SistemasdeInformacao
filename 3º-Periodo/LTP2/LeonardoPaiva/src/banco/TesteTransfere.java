@@ -13,12 +13,12 @@ import java.util.Scanner;
  */
 public class TesteTransfere {
     public static void main(String[] args) {
-        Conta minhaConta = new Conta();
+        Conta minhaConta = new ContaCorrente();
         Scanner entrada = new Scanner(System.in);
         System.out.println("Digite um valor para despósito:");
         minhaConta.deposita(entrada.nextDouble());
         
-        Conta outraConta = new Conta();
+        Conta outraConta = new ContaCorrente();
         outraConta.deposita(5000);
         
         minhaConta.transfere(outraConta, 20000);

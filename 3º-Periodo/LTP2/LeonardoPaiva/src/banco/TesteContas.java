@@ -11,19 +11,19 @@ package banco;
  */
 public class TesteContas {
     public static void main(String[] args) {
-        Conta conta = new Conta();
+        //Conta conta = new Conta();
         ContaCorrente contaCc = new ContaCorrente();
         ContaPoupanca contaP = new ContaPoupanca();
         
-        conta.deposita(1000);
+        //conta.deposita(1000);
         contaCc.deposita(1000);
         contaP.deposita(1000);
         
-        conta.atualiza(0.10);
+       // conta.atualiza(0.10);
         contaCc.atualiza(0.10);
         contaP.atualiza(0.10);
         
-        System.out.println("Saldo Conta: R$" + conta.getSaldo());
+       // System.out.println("Saldo Conta: R$" + conta.getSaldo());
         System.out.println("Saldo Conta Corrente: R$" + contaCc.getSaldo());
         System.out.println("Saldo Conta Poupanca: R$" + contaP.getSaldo());
         
