@@ -17,10 +17,18 @@ public class Programa {
         
         Conta minhaConta = new ContaCorrente();
         //minhaConta.saldo = 5000;
-        minhaConta.deposita(5000);
+        try {
+            minhaConta.deposita(5000);
+     }  catch(ValorInvalidoException e){
+            System.out.println(e.getMessage());
+    }
         
         System.out.println("Digite um valor para depósito:");
-        minhaConta.deposita(entrada.nextDouble());
+        try {
+            minhaConta.deposita(entrada.nextDouble());
+    } catch(ValorInvalidoException e){
+            System.out.println(e.getMessage());
+    }
        
         System.out.println("Digite um valor para saque:");
         if(minhaConta.saca(entrada.nextDouble())==true){

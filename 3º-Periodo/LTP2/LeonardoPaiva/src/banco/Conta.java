@@ -39,9 +39,13 @@ abstract public class Conta {
         this.numero = numero;   
     }
 
-    public void deposita(double saldo) { 
-        this.saldo = this.saldo + saldo;
-        System.out.println("Depósito realizado para: "+objCliente1.getNome());
+    public void deposita(double saldo) throws ValorInvalidoException { 
+        if(saldo < 0){
+            throw new ValorInvalidoException(saldo);
+        } else {        
+            this.saldo = this.saldo + saldo;
+            System.out.println("Depósito realizado para: "+objCliente1.getNome());
+        }
     }
 
     public boolean saca(double saldo) { 
@@ -57,7 +61,11 @@ abstract public class Conta {
 
     boolean transfere(Conta destino, double saldo) {
         if (this.saca(saldo) == true) {
-            destino.deposita(saldo);
+            try {
+                destino.deposita(saldo);
+            } catch(ValorInvalidoException e){
+                System.out.println(e.getMessage());
+            }
             return true;
         } else {
             return false;

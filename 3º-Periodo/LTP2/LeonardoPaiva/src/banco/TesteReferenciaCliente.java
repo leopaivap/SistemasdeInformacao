@@ -16,8 +16,11 @@ public class TesteReferenciaCliente {
         c1.objCliente1.setNome("Paola Dias");
         System.out.println("Nome: "+c1.objCliente1.getNome());
    
-        
-        c1.deposita(50000);
+        try{
+            c1.deposita(50000);
+    }   catch(ValorInvalidoException e){
+            System.out.println(e.getMessage());
     }
+        }
     
 }

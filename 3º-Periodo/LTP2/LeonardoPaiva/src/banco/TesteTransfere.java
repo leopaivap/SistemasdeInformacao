@@ -16,10 +16,19 @@ public class TesteTransfere {
         Conta minhaConta = new ContaCorrente();
         Scanner entrada = new Scanner(System.in);
         System.out.println("Digite um valor para despósito:");
-        minhaConta.deposita(entrada.nextDouble());
+        try{
+            minhaConta.deposita(entrada.nextDouble());
+    }   catch(ValorInvalidoException e){
+            System.out.println(e.getMessage());
+    }
         
         Conta outraConta = new ContaCorrente();
-        outraConta.deposita(5000);
+        
+        try {
+            outraConta.deposita(5000);
+    } catch(ValorInvalidoException e){
+            System.out.println(e.getMessage());
+    }
         
         minhaConta.transfere(outraConta, 20000);
         System.out.println("Saldo minha conta:"+minhaConta.getSaldo());

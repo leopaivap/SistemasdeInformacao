@@ -16,8 +16,12 @@ public class TesteContas {
         ContaPoupanca contaP = new ContaPoupanca();
         
         //conta.deposita(1000);
+        try{
         contaCc.deposita(1000);
         contaP.deposita(1000);
+    }    catch(ValorInvalidoException e){
+            System.out.println(e.getMessage());
+    }
         
        // conta.atualiza(0.10);
         contaCc.atualiza(0.10);

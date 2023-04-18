@@ -5,9 +5,12 @@ public class TestaAtualizadorDeContas {
         Conta cc = new ContaCorrente();
         Conta cp = new ContaPoupanca();
         
-        
-        cc.deposita(1000);
-        cp.deposita(1000);
+        try {
+            cc.deposita(1000);
+            cp.deposita(1000);
+    }   catch(ValorInvalidoException e){
+            System.out.println(e.getMessage());
+    }  
         
         AtualizadorDeContas adc = new AtualizadorDeContas(0.10);
         adc.roda(cc);

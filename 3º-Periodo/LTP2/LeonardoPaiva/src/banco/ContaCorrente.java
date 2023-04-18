@@ -9,7 +9,12 @@ void atualiza(double taxa){
 
 @Override
 public void deposita(double saldo){
-    super.deposita(saldo - 1.0);
+    try {
+        super.deposita(saldo - 1.0);
+    } catch(ValorInvalidoException e){
+        System.out.println(e.getMessage());
+    }
+   
 }
 
 @Override
