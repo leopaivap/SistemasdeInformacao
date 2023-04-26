@@ -94,6 +94,15 @@ void printList(tdeque minhaDeque){
 	printf("\n");
 }
 //-----------------------------
+void length(tdeque minhaDeque){
+	int cont = 0;
+	while(minhaDeque.ini != NULL){
+		cont++;
+		minhaDeque.ini = minhaDeque.ini->prox;
+	}
+	printf("Quantidade de Elementos: %d\n", cont);
+}
+//-----------------------------
 void printInvertida(tdeque minhaDeque){ // alterar
 	while(minhaDeque.fim != NULL){
 		printf("%d -", minhaDeque.fim->dado);
@@ -122,6 +131,7 @@ int menu(){
 	printf("5-Add Ini (Inserir)\n");
 	printf("6-Remove Fim (Remover)\n");
 	printf("7-Mostra Endereco\n");
+	printf("8-Quantidade de Elementos\n");
 	printf("0-Sair\n");
 	scanf("%d",&op);
 	return op;
@@ -185,6 +195,11 @@ int main(){
 			case 7:
 				if(!isEmpty(minhaDeque))
 			 			mostraEndereco(minhaDeque);
+			break;
+			
+			case 8:
+				if(!isEmpty(minhaDeque))
+			 			length(minhaDeque);
 			break;
 			
 			case 0: 
