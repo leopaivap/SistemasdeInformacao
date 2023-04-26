@@ -7,13 +7,16 @@ public class FormFila extends javax.swing.JFrame {
 
     public FormFila() {
         initComponents();
-        prox();
-        btnMostraInvertida.setLabel("Mostrar invertida");
-        
+        prox();   
     }
     
     int x = 0;
     void mostra(){
+        if(!minhaDeque.isEmpty() && x == 1){
+              btnMostraInvertida.setLabel("Mostrar invertida");
+              x = 0;
+         }
+        
         listFilaDupla.setText("");
         if(!minhaDeque.isEmpty())
                 for(Pessoa p: minhaDeque)
@@ -22,19 +25,22 @@ public class FormFila extends javax.swing.JFrame {
     
     void mostraInvertido(){
          listFilaDupla.setText("");
+         if(!minhaDeque.isEmpty() && x == 1){
+              btnMostraInvertida.setLabel("Mostrar invertida");
+              x = 0;
+              mostra();
+              return;
+         }
+         
          Iterator meuIterator = minhaDeque.descendingIterator(); // iterador para inverter a lista
-         if(!minhaDeque.isEmpty()){
+         if(!minhaDeque.isEmpty()&& x == 0){
              x = 1;
              btnMostraInvertida.setLabel("Mostrar normal");
              while(meuIterator.hasNext())
                  listFilaDupla.append(meuIterator.next() + "\n");
-         }else
+         }else if(minhaDeque.isEmpty())
              JOptionPane.showMessageDialog(null, "Fila vazia!");
          
-         if(x == 1){
-              btnMostraInvertida.setLabel("Mostrar invertida");
-              mostra();
-         }
              
     }
     
@@ -258,31 +264,37 @@ public class FormFila extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddFirstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddFirstActionPerformed
-        Pessoa novaPessoa = new Pessoa();
-        novaPessoa.setNome(txtNome.getText());
-        novaPessoa.setRg(txtRG.getText());
-        novaPessoa.setIdade(Integer.parseInt((txtIdade.getText())));
-        minhaDeque.addFirst(novaPessoa);
-        
-        txtNome.setText("");
-        txtRG.setText("");
-        txtIdade.setText("");
-        mostra();
-        prox();
+        if(!txtNome.getText().equals("") && !txtRG.getText().equals("") && !txtIdade.getText().equals("")){
+            Pessoa novaPessoa = new Pessoa();
+            novaPessoa.setNome(txtNome.getText());
+            novaPessoa.setRg(txtRG.getText());
+            novaPessoa.setIdade(Integer.parseInt((txtIdade.getText())));
+            minhaDeque.addFirst(novaPessoa);
+
+            txtNome.setText("");
+            txtRG.setText("");
+            txtIdade.setText("");
+            mostra();
+            prox();
+        } else
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
     }//GEN-LAST:event_btnAddFirstActionPerformed
 
     private void btnAddLastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddLastActionPerformed
-        Pessoa novaPessoa = new Pessoa();
-        novaPessoa.setNome(txtNome.getText());
-        novaPessoa.setRg(txtRG.getText());
-        novaPessoa.setIdade(Integer.parseInt((txtIdade.getText())));
-        minhaDeque.addLast(novaPessoa);
-        
-        txtNome.setText("");
-        txtRG.setText("");
-        txtIdade.setText("");
-        mostra();
-        prox();
+        if(!txtNome.getText().equals("") && !txtRG.getText().equals("") && !txtIdade.getText().equals("")){
+            Pessoa novaPessoa = new Pessoa();
+            novaPessoa.setNome(txtNome.getText());
+            novaPessoa.setRg(txtRG.getText());
+            novaPessoa.setIdade(Integer.parseInt((txtIdade.getText())));
+            minhaDeque.addLast(novaPessoa);
+
+            txtNome.setText("");
+            txtRG.setText("");
+            txtIdade.setText("");
+            mostra();
+            prox();
+        } else
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
     }//GEN-LAST:event_btnAddLastActionPerformed
 
     private void btnMostraInvertidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostraInvertidaActionPerformed
@@ -294,7 +306,8 @@ public class FormFila extends javax.swing.JFrame {
             Pessoa p = minhaDeque.removeFirst();
             mostra();
             prox();
-        }
+        }else
+             JOptionPane.showMessageDialog(null, "Fila vazia!");
            
     }//GEN-LAST:event_btnAtenderIniActionPerformed
 
@@ -303,7 +316,8 @@ public class FormFila extends javax.swing.JFrame {
                 Pessoa p = minhaDeque.removeLast();
                 mostra();
                 prox();
-        }
+        }else
+             JOptionPane.showMessageDialog(null, "Fila vazia!");
     }//GEN-LAST:event_btnAtenderFimActionPerformed
 
 
