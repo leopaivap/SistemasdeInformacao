@@ -1,10 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 typedef int tdado;
+
 typedef struct no{
 	tdado dado;
 	struct no *prox, *ant;
 }tno;
+
 typedef struct{
 	tno *ini,*fim; // head e tail
 }tdeque;
@@ -50,10 +53,30 @@ tdado removeFirst(tdeque *minhaDeque){
 	minhaDeque->ini = minhaDeque->ini->prox; // removendo, deslocando o apontamento
 	if(minhaDeque->ini == NULL) // era o ultimo elemento
 	   minhaDeque->fim = NULL;
-	//else  
-	    // Alteracao da DEQUE  , o anterior do inicio aponta para NULL
+	else
+		minhaDeque->ini->ant = NULL;
 	free(aux); // limpando a memoria
 	return retorno; // retorno o dado removido
+}
+//---------------------------------------------
+tdado removeLast(tdeque *minhaDeque){
+	tdado retorno = minhaDeque->fim->dado; // pegando o dado armazenado no no
+	tno *aux = minhaDeque->fim; // guardando o endereco para limpar a memoria
+	minhaDeque->fim = minhaDeque->fim->ant; // removendo, deslocando o apontamento
+	if(minhaDeque->ini == NULL) // era o ultimo elemento
+	   minhaDeque->fim = NULL;
+	else
+		minhaDeque->fim->prox = NULL;
+	free(aux); // limpando a memoria
+	return retorno; // retorno o dado removido
+}
+//----------------------
+tdado firstList(tdeque minhaDeque){
+	return minhaDeque.ini->dado;
+}
+//----------------------
+tdado lastList(tdeque minhaDeque){
+	return minhaDeque.fim->dado;
 }
 //----------------------
 int isEmpty(tdeque minhaDeque){
@@ -65,7 +88,7 @@ int isEmpty(tdeque minhaDeque){
 //-----------------------------
 void printList(tdeque minhaDeque){
 	while(minhaDeque.ini != NULL){
-		printf("%d -",minhaDeque.ini->dado); // mostro o dado
+		printf("%d - ",minhaDeque.ini->dado); // mostro o dado
 		minhaDeque.ini = minhaDeque.ini->prox; // deslocando para o prox
 	}// fim while
 	printf("\n");
@@ -73,16 +96,17 @@ void printList(tdeque minhaDeque){
 //-----------------------------
 void printInvertida(tdeque minhaDeque){ // alterar
 	while(minhaDeque.fim != NULL){
-		// percorrer invertida
+		printf("%d -", minhaDeque.fim->dado);
+		minhaDeque.fim = minhaDeque.fim->ant;
 	}// fim while
 	printf("\n");
 }
 //-----------------------------
 void mostraEndereco(tdeque minhaDeque){
 	while(minhaDeque.ini != NULL){
-		/*printf("<- %x| %d [%x] | %x ->\n ",
+		printf("<- %x| %d [%x] | %x ->\n",
 		        minhaDeque.ini->ant, minhaDeque.ini->dado, minhaDeque.ini , minhaDeque.ini->prox); // mostro o dado
-		minhaDeque.ini = minhaDeque.ini->prox; // deslocando para o prox*/
+		minhaDeque.ini = minhaDeque.ini->prox; // deslocando para o prox
 	}// fim while
 	printf("\n");
 }
@@ -90,13 +114,14 @@ void mostraEndereco(tdeque minhaDeque){
 int menu(){
 	int op;
 	printf("*** Estrutura de Dados I ***\n");
-	printf("*** Fila Encadeada ***\n");
+	printf("*** Fila Duplamente Encadeada ***\n");
 	printf("1-Add Fim (Inserir)\n");
 	printf("2-Remove Ini  (Remover)\n");
 	printf("3-Primeiro e ultimo da fila\n");
 	printf("4-Mostrar Fila Inversa\n");
 	printf("5-Add Ini (Inserir)\n");
 	printf("6-Remove Fim (Remover)\n");
+	printf("7-Mostra Endereco\n");
 	printf("0-Sair\n");
 	scanf("%d",&op);
 	return op;
@@ -117,21 +142,24 @@ int main(){
 					   printf("Valor inserido:)\n");
 					else
 					   printf("Fila cheia:(\n");   
-				break;
+			break;
+				
 			case 2: if(!isEmpty(minhaDeque)){
 				      novoDado = removeFirst(&minhaDeque);
 				      printf("Removido: %d\n",novoDado);
 					}// fim if
 					else
 					  printf("Fila vazia :(\n");
-			   break;
+			break;
+			   
 			case 3: if(!isEmpty(minhaDeque)){
-				      //printf("Inicio: %d\n",firstList(minhaDeque));
-				      //printf("Fim: %d\n",lastList(minhaDeque));
+				      printf("Inicio: %d\n",firstList(minhaDeque));
+				      printf("Fim: %d\n",lastList(minhaDeque));
 			         }// fim if 
 					 else
 					    printf("Fila vazia :(\n"); 
 			break;
+			
 			case 4: if(!isEmpty(minhaDeque))
 			 			printInvertida(minhaDeque);
 			break; 
@@ -143,9 +171,29 @@ int main(){
 					   printf("Valor inserido:)\n");
 					else
 					   printf("Fila cheia:(\n"); 
-			break;		
-			case 0: printf("Saindo...");  
 			break;	
+			
+			case 6:
+				if(!isEmpty(minhaDeque)){
+				      novoDado = removeLast(&minhaDeque);
+				      printf("Removido: %d\n",novoDado);
+					}// fim if
+					else
+					  printf("Fila vazia :(\n");
+			break;
+				
+			case 7:
+				if(!isEmpty(minhaDeque))
+			 			mostraEndereco(minhaDeque);
+			break;
+			
+			case 0: 
+				printf("Saindo...");  
+			break;	
+			
+			default:
+				printf("Opcao Invalida!");
+			break;
 		}// fim switch
 		getch();
 		system("cls"); 
