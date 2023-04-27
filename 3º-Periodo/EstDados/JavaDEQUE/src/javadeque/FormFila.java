@@ -320,7 +320,6 @@ public class FormFila extends javax.swing.JFrame {
              JOptionPane.showMessageDialog(null, "Fila vazia!");
     }//GEN-LAST:event_btnAtenderFimActionPerformed
 
-
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
