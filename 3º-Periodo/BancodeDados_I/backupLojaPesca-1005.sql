@@ -27,16 +27,20 @@ CREATE TABLE IF NOT EXISTS `auditoria` (
   `dataHora` datetime DEFAULT NULL,
   `usuario` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`codAuditoria`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COMMENT='Registra as principais alterações neste BD.';
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COMMENT='Registra as principais alterações neste BD.';
 
--- Copiando dados para a tabela lojapesca.auditoria: ~5 rows (aproximadamente)
+-- Copiando dados para a tabela lojapesca.auditoria: ~9 rows (aproximadamente)
 /*!40000 ALTER TABLE `auditoria` DISABLE KEYS */;
 INSERT INTO `auditoria` (`codAuditoria`, `acao`, `tabela`, `dataHora`, `usuario`) VALUES
 	(12, 'Cliente Inserido: ACPF:10', 'cliente', '2023-05-02 10:08:41', 'root@localhost'),
 	(13, 'Cliente Inserido: outroCPF:123', 'cliente', '2023-05-02 10:09:07', 'root@localhost'),
 	(14, 'Cliente Alterado: outroNovo CPF: 120.120.120-50', 'cliente', '2023-05-02 10:16:35', 'root@localhost'),
 	(15, 'Cliente Removido: ACPF: 10', 'cliente', '2023-05-02 10:19:23', 'root@localhost'),
-	(16, 'Cliente Removido: outro CPF: 120.120.120-50', 'cliente', '2023-05-02 10:20:37', 'root@localhost');
+	(16, 'Cliente Removido: outro CPF: 120.120.120-50', 'cliente', '2023-05-02 10:20:37', 'root@localhost'),
+	(17, 'Barco com custo > 100: barco teste - Preço:400.00', 'produto', '2023-05-09 10:40:57', 'root@localhost'),
+	(18, 'Estoque minimo atingido: Vara de bambu - Estoque:3', 'produto', '2023-05-10 07:11:18', 'root@localhost'),
+	(19, 'Funcionario Demitido: outro teste', 'funcionario', '2023-05-10 07:30:33', 'root@localhost'),
+	(20, 'Funcionario Demitido: outro teste', 'funcionario', '2023-05-10 07:30:54', 'root@localhost');
 /*!40000 ALTER TABLE `auditoria` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela lojapesca.categoria
@@ -128,7 +132,7 @@ CREATE TABLE IF NOT EXISTS `funcionario` (
 INSERT INTO `funcionario` (`codFuncionario`, `nome`, `salario`, `dataAdimissao`, `dataDemissao`, `cpf`, `ctps`) VALUES
 	(1, 'leosin', 15000.00, '0000-00-00', '0000-00-00', '478.456.123.55', '1234567'),
 	(2, 'jaulis', 15611.45, '2022-03-30', '0000-00-00', '123.456.789.00', '1234567'),
-	(3, 'outro teste', 15000.00, '2022-10-10', '0000-00-00', '126.126.126-50', '45615641');
+	(3, 'outro teste', 15000.00, '2022-10-10', '2023-02-02', '126.126.126-50', '45615641');
 /*!40000 ALTER TABLE `funcionario` ENABLE KEYS */;
 
 -- Copiando estrutura para procedure lojapesca.insere_usuario
@@ -297,13 +301,13 @@ CREATE TABLE IF NOT EXISTS `produto` (
   CONSTRAINT `fk_Produto_Fornecedor1` FOREIGN KEY (`Fornecedor_codFornecedor`) REFERENCES `fornecedor` (`codFornecedor`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_Produtos_Categoria1` FOREIGN KEY (`Categoria_codCategoria`) REFERENCES `categoria` (`codCategoria`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_Produtos_Marca` FOREIGN KEY (`Marca_codMarca`) REFERENCES `marca` (`codMarca`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
 
 -- Copiando dados para a tabela lojapesca.produto: ~12 rows (aproximadamente)
 /*!40000 ALTER TABLE `produto` DISABLE KEYS */;
 INSERT INTO `produto` (`codProduto`, `nomeProduto`, `qntdEstoque`, `precoCusto`, `precoVenda`, `dataInsercao`, `obsProduto`, `Categoria_codCategoria`, `Marca_codMarca`, `Fornecedor_codFornecedor`) VALUES
 	(12, 'Vara de alta tensao', 5, 250.00, 400.00, '2022-01-15', 'vara oceanica', 10, 4, 1),
-	(13, 'Vara de bambu', 10, 50.00, 90.00, '2022-05-21', 'Varas curtas (em torno de 1m a 1,5m) e de ação média-rápida', 10, 6, 5),
+	(13, 'Vara de bambu', 3, 50.00, 90.00, '2022-05-21', 'Varas curtas (em torno de 1m a 1,5m) e de ação média-rápida', 10, 6, 5),
 	(14, 'Vara Surfcasting', 6, 200.00, 340.00, '2022-03-12', 'Surfcasting: pesca de praia,', 10, 7, 6),
 	(15, 'Molinete Ultra leve', 15, 30.00, 50.00, '2022-06-17', 'molinetes menores que utilizam linhas entre 0,15mm e 0,23mm', 9, 5, 3),
 	(16, 'Molinete Médio', 22, 40.00, 70.00, '2022-08-26', 'molinetes de médio porte que utilizam linhas entre 0,30mm a 0,40mm.', 9, 5, 4),
@@ -313,7 +317,8 @@ INSERT INTO `produto` (`codProduto`, `nomeProduto`, `qntdEstoque`, `precoCusto`,
 	(20, 'Garateia', 5, 10.00, 20.00, '2022-05-14', 'O anzol é chamado assim quando há três ganchos em uma mesma haste.', 11, 7, 4),
 	(21, 'Barco Semi-chatos', 4, 360.00, 500.00, '2022-11-10', 'eles são ideais para serem usados em águas mais calmas que possuem pequenas ondas, como em algumas represas e rios.', 12, 5, 3),
 	(22, 'Caiaque nemisus', 3, 680.00, 1000.00, '2022-07-14', 'Exigem muita destreza para fazer a pilotagem e manipular os equipamentos ao mesmo tempo, porém, podem proporcionar um contato ímpar com a natureza e com a pescaria', 12, 5, 6),
-	(23, 'Barco AquaLeve', 5, 500.00, 700.00, '2022-08-28', ' leves e ideais para ambientes menos turbulentos, como lagos e represas.', 9, 4, 1);
+	(23, 'Barco AquaLeve', 5, 500.00, 700.00, '2022-08-28', ' leves e ideais para ambientes menos turbulentos, como lagos e represas.', 9, 4, 1),
+	(27, 'barco teste', 2, 400.00, 600.00, '2023-05-09', 'barco', 12, 6, 6);
 /*!40000 ALTER TABLE `produto` ENABLE KEYS */;
 
 -- Copiando estrutura para procedure lojapesca.update_produto
@@ -391,6 +396,36 @@ END//
 DELIMITER ;
 SET SQL_MODE=@OLDTMP_SQL_MODE;
 
+-- Copiando estrutura para trigger lojapesca.tri_LogEstoqueMinimoVara
+DROP TRIGGER IF EXISTS `tri_LogEstoqueMinimoVara`;
+SET @OLDTMP_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION';
+DELIMITER //
+CREATE TRIGGER `tri_LogEstoqueMinimoVara` AFTER UPDATE ON `produto` FOR EACH ROW BEGIN
+	if(NEW.qntdEstoque < 5 AND NEW.nomeProduto LIKE "Vara de bambu")
+		then
+				SET @mensagem = CONCAT("Estoque minimo atingido: ", NEW.nomeProduto, " - Estoque:", NEW.qntdEstoque);
+				
+				INSERT INTO auditoria VALUES(NULL, @mensagem, "produto",NOW(), USER());
+	END if;
+END//
+DELIMITER ;
+SET SQL_MODE=@OLDTMP_SQL_MODE;
+
+-- Copiando estrutura para trigger lojapesca.tri_LogFuncionarioDemitido
+DROP TRIGGER IF EXISTS `tri_LogFuncionarioDemitido`;
+SET @OLDTMP_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION';
+DELIMITER //
+CREATE TRIGGER `tri_LogFuncionarioDemitido` AFTER UPDATE ON `funcionario` FOR EACH ROW BEGIN
+    IF (NEW.dataDemissao != '0000-00-00') THEN
+      
+        
+        SET @mensagem = CONCAT("Funcionario Demitido: ", NEW.nome);
+        INSERT INTO auditoria VALUES (NULL, @mensagem, "funcionario", NOW(), USER());
+    END IF;
+END//
+DELIMITER ;
+SET SQL_MODE=@OLDTMP_SQL_MODE;
+
 -- Copiando estrutura para trigger lojapesca.tri_LogInsereCliente
 DROP TRIGGER IF EXISTS `tri_LogInsereCliente`;
 SET @OLDTMP_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION';
@@ -400,6 +435,24 @@ CREATE TRIGGER `tri_LogInsereCliente` AFTER INSERT ON `cliente` FOR EACH ROW BEG
 	
 	INSERT INTO auditoria
 	VALUES(NULL, @mensagem, "cliente",NOW(), USER());
+END//
+DELIMITER ;
+SET SQL_MODE=@OLDTMP_SQL_MODE;
+
+-- Copiando estrutura para trigger lojapesca.tri_LogRegistraBarcoMaiorQue100
+DROP TRIGGER IF EXISTS `tri_LogRegistraBarcoMaiorQue100`;
+SET @OLDTMP_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION';
+DELIMITER //
+CREATE TRIGGER `tri_LogRegistraBarcoMaiorQue100` AFTER INSERT ON `produto` FOR EACH ROW BEGIN
+	
+	if(NEW.precoCusto > 100 && !(NEW.Categoria_codCategoria != 12))
+		then 
+			SET @mensagem = CONCAT("Barco com custo maior que 100: ", NEW.nomeProduto, " - Preço:", NEW.precoCusto);
+			
+			INSERT INTO auditoria
+			VALUES(NULL, @mensagem, "produto",NOW(), USER());
+	END if;
+	
 END//
 DELIMITER ;
 SET SQL_MODE=@OLDTMP_SQL_MODE;
