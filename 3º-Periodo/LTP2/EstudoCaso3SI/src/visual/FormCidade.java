@@ -31,6 +31,7 @@ public class FormCidade extends javax.swing.JDialog {
         btnEditar.setEnabled(editando);
         int linha = listCidade.size()-1;
         if(linha<0){
+            btnEditar.setEnabled(false);
             btnExcluir.setEnabled(false);
             txtCodigo.setText("");
             txtCidade.setText("");
@@ -165,9 +166,19 @@ public class FormCidade extends javax.swing.JDialog {
         painelAcoes.add(btnNovo);
 
         btnEditar.setText("Editar");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
         painelAcoes.add(btnEditar);
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
         painelAcoes.add(btnCancelar);
 
         btnSalvar.setText("Salvar");
@@ -278,6 +289,17 @@ public class FormCidade extends javax.swing.JDialog {
         tblCidade.setRowSelectionInterval(linha, linha);
         txtCidade.requestFocus();
     }//GEN-LAST:event_btnNovoActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        trataEdicao(true);
+        txtCidade.requestFocus();
+        
+    }//GEN-LAST:event_btnEditarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        trataEdicao(false);
+        atualizaTabela();
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**
      * @param args the command line arguments
