@@ -101,12 +101,27 @@ public class FormCidade extends javax.swing.JDialog {
         painelNavegacao.setLayout(new java.awt.GridLayout(1, 0));
 
         btnPrimeiro.setText("Primeiro");
+        btnPrimeiro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPrimeiroActionPerformed(evt);
+            }
+        });
         painelNavegacao.add(btnPrimeiro);
 
         btnProximo.setText("Proximo");
+        btnProximo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProximoActionPerformed(evt);
+            }
+        });
         painelNavegacao.add(btnProximo);
 
         btnUltimo.setText("Ultimo");
+        btnUltimo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUltimoActionPerformed(evt);
+            }
+        });
         painelNavegacao.add(btnUltimo);
 
         btnFechar.setText("Fechar");
@@ -118,6 +133,11 @@ public class FormCidade extends javax.swing.JDialog {
         painelNavegacao.add(btnFechar);
 
         btnAnterior.setText("Anterior");
+        btnAnterior.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAnteriorActionPerformed(evt);
+            }
+        });
         painelNavegacao.add(btnAnterior);
 
         abaListagem.setLayout(new java.awt.BorderLayout());
@@ -190,6 +210,11 @@ public class FormCidade extends javax.swing.JDialog {
         painelAcoes.add(btnSalvar);
 
         btnExcluir.setText("Excluir");
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
+            }
+        });
         painelAcoes.add(btnExcluir);
 
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, tblCidade, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.nomeCidade}"), txtCidade, org.jdesktop.beansbinding.BeanProperty.create("text"));
@@ -300,6 +325,46 @@ public class FormCidade extends javax.swing.JDialog {
         trataEdicao(false);
         atualizaTabela();
     }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        int opcao = JOptionPane.showOptionDialog(null, "Confirmar exclusão?", "Pergunta", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new String[]{"Sim", "Não"}, "Sim");
+        if(opcao == 0){
+            int linhaSelecionada = tblCidade.getSelectedRow();
+            Cidade objCidade = listCidade.get(linhaSelecionada);
+            objDAOCidade.remover(objCidade);
+            atualizaTabela();
+            trataEdicao(false);
+        }
+    }//GEN-LAST:event_btnExcluirActionPerformed
+
+    private void btnPrimeiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrimeiroActionPerformed
+        tblCidade.setRowSelectionInterval(0, 0);
+        tblCidade.scrollRectToVisible(tblCidade.getCellRect(0, 0, true));
+    }//GEN-LAST:event_btnPrimeiroActionPerformed
+
+    private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
+        int linha = tblCidade.getSelectedRow();
+        if(linha-1 >= 0)
+            linha--;
+        
+        tblCidade.setRowSelectionInterval(linha, linha);
+        tblCidade.scrollRectToVisible(tblCidade.getCellRect(linha, 0, true));
+    }//GEN-LAST:event_btnAnteriorActionPerformed
+
+    private void btnProximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProximoActionPerformed
+        int linha = tblCidade.getSelectedRow();
+        if((linha+1) <= (tblCidade.getRowCount())-1)
+            linha++;
+        
+        tblCidade.setRowSelectionInterval(linha, linha);
+        tblCidade.scrollRectToVisible(tblCidade.getCellRect(linha, 0, true));
+    }//GEN-LAST:event_btnProximoActionPerformed
+
+    private void btnUltimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUltimoActionPerformed
+       int linha = tblCidade.getRowCount()-1;
+       tblCidade.setRowSelectionInterval(linha, linha);
+       tblCidade.scrollRectToVisible(tblCidade.getCellRect(linha, 0, true));
+    }//GEN-LAST:event_btnUltimoActionPerformed
 
     /**
      * @param args the command line arguments
