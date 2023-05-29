@@ -74,7 +74,7 @@ public class FormPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCidadeActionPerformed
-        // TODO add your handling code here:
+
         FormCidade form = new FormCidade(this, true);
         //this: chama a partir desse form
         //true:sobre o form principal e não deixa acessa-lo
@@ -89,6 +89,16 @@ public class FormPrincipal extends javax.swing.JFrame {
 
     private void menuFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFuncionarioActionPerformed
         // TODO add your handling code here:
+        FormFuncionario form = new FormFuncionario(this, true);
+        //this: chama a partir desse form
+        //true:sobre o form principal e não deixa acessa-lo
+        
+        form.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+        //não deixa fechar o form pelo x
+        
+        form.setLocationRelativeTo(null); // centro
+        form.setResizable(false); // retira o botão maximizar
+        form.setVisible(true); // mostra o form
     }//GEN-LAST:event_menuFuncionarioActionPerformed
 
     private void menuSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSobreActionPerformed

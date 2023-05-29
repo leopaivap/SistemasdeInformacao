@@ -178,28 +178,19 @@
                   <BindingProperties>
                     <BindingProperty name="elements" source="listFuncionario" target="tblFuncionario" targetPath="elements" updateStrategy="0" immediately="true">
                       <Subbinding sourcePath="${codigoFuncionario}">
-                        <BindingParameter name="NAME" value="C&#xf3;digo"/>
                         <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="Integer.class"/>
-                        <BindingParameter name="javax.swing.binding.ParameterKeys.EDITABLE" value="false"/>
-                      </Subbinding>
-                      <Subbinding sourcePath="${nascimentoFuncionario}">
-                        <BindingParameter name="NAME" value="Nascimento"/>
-                        <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="java.util.Calendar.class"/>
-                        <BindingParameter name="javax.swing.binding.ParameterKeys.EDITABLE" value="false"/>
                       </Subbinding>
                       <Subbinding sourcePath="${nomeFuncionario}">
-                        <BindingParameter name="NAME" value="Nome"/>
                         <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="String.class"/>
-                        <BindingParameter name="javax.swing.binding.ParameterKeys.EDITABLE" value="false"/>
                       </Subbinding>
                       <Subbinding sourcePath="${objCidade}">
-                        <BindingParameter name="NAME" value="Cidade"/>
                         <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="modelo.Cidade.class"/>
-                        <BindingParameter name="javax.swing.binding.ParameterKeys.EDITABLE" value="false"/>
                       </Subbinding>
                       <Subbinding sourcePath="${salarioFuncionario}">
-                        <BindingParameter name="NAME" value="Sal&#xe1;rio"/>
                         <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="Double.class"/>
+                      </Subbinding>
+                      <Subbinding sourcePath="${nascimentoFormatado}">
+                        <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="String.class"/>
                       </Subbinding>
                     </BindingProperty>
                   </BindingProperties>
@@ -225,7 +216,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="txtNascimento" min="-2" pref="114" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -283,7 +274,7 @@
                           <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="cbxCidade" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="131" max="32767" attributes="0"/>
+                      <EmptySpace pref="111" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -395,6 +386,11 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtSalario">
+              <BindingProperties>
+                <BindingProperty name="text" source="tblFuncionario" sourcePath="${selectedElement.salarioFuncionario}" target="txtSalario" targetPath="text" updateStrategy="0" immediately="false">
+                  <BindingParameter name="javax.swing.binding.ParameterKeys.TEXT_CHANGE_STRATEGY" value="javax.swing.binding.TextChangeStrategy.ON_TYPE"/>
+                </BindingProperty>
+              </BindingProperties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel5">
               <Properties>
@@ -403,8 +399,16 @@
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="txtNascimento">
               <BindingProperties>
-                <BindingProperty name="value" source="tblFuncionario" sourcePath="${selectedElement.nascimentoFuncionario}" target="txtNascimento" targetPath="value" updateStrategy="0" immediately="false"/>
+                <BindingProperty name="value" source="tblFuncionario" sourcePath="${selectedElement.nascimentoFuncionario}" target="txtNascimento" targetPath="value" updateStrategy="0" immediately="false">
+                  <Property name="converter" type="org.jdesktop.beansbinding.Converter" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                    <ComponentRef name="converteData"/>
+                  </Property>
+                </BindingProperty>
               </BindingProperties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JFormattedTextField(maskData)"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="javax.swing.text.MaskFormatter maskData = null;  try{  maskData = new javax.swing.text.MaskFormatter(&quot;##/##/####&quot;);  maskData.setPlaceholderCharacter(&apos;_&apos;);  } catch(Exception e){  System.out.println(&quot;Erro na mascara &quot; + e);  }"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
