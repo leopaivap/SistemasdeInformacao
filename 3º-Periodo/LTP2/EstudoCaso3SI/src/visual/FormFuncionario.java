@@ -1,5 +1,6 @@
 package visual;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import modelo.Cidade;
@@ -70,9 +71,18 @@ public class FormFuncionario extends javax.swing.JDialog {
             return false; 
         }
          if(!(txtNascimento.getText().length()>0)){
-            JOptionPane.showMessageDialog(null, "Informe a data de nascimento!");
-            txtNascimento.requestFocus();
-            return false;
+          ;
+             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+             sdf.setLenient(false);
+             try{
+                 sdf.parse(txtNascimento.getText());
+             }catch(Exception e){
+                JOptionPane.showMessageDialog(null, "Informe a data de nascimento!");
+                txtNascimento.requestFocus();
+        
+             }
+             return false;
+
         }
           if(!(txtSalario.getText().length()>0)){
             JOptionPane.showMessageDialog(null, "Informe o salário!");
