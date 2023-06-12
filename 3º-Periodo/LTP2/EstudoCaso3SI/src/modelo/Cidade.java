@@ -3,12 +3,13 @@ package modelo;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class Cidade implements Serializable{
+public class Cidade implements Serializable {
+
     private Integer codigoCidade;
     private String nomeCidade, ufCidade;
-    
-    public Cidade(){
-        
+
+    public Cidade() {
+
     }
 
     public Integer getCodigoCidade() {
@@ -64,7 +65,5 @@ public class Cidade implements Serializable{
     public String toString() {
         return nomeCidade;
     }
-    
-    
-    
+
 }

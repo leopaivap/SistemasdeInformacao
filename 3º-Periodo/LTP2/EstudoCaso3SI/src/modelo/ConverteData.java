@@ -7,7 +7,7 @@ import org.jdesktop.beansbinding.Converter;
 public class ConverteData extends Converter<Object, Object> {
 
     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-    
+
     @Override
     public Object convertForward(Object value) {
         Calendar c = (Calendar) value;
@@ -21,9 +21,9 @@ public class ConverteData extends Converter<Object, Object> {
         try {
             c.setTime(sdf.parse(str));
             return c;
-        } catch(Exception e){
+        } catch (Exception e) {
             return null;
         }
     }
-    
+
 }

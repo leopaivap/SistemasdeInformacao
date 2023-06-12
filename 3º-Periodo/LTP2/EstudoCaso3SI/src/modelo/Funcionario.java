@@ -7,15 +7,16 @@ import java.util.Calendar;
 import java.util.Objects;
 import jdk.nashorn.internal.objects.NativeDate;
 
-public class Funcionario implements Serializable{
+public class Funcionario implements Serializable {
+
     private Integer codigoFuncionario;
     private String nomeFuncionario;
     private Double salarioFuncionario;
     private Calendar nascimentoFuncionario;
     Cidade objCidade; // relacionamento com cidade
-    
-    public Funcionario(){
-        
+
+    public Funcionario() {
+
     }
 
     public Integer getCodigoFuncionario() {
@@ -82,11 +83,11 @@ public class Funcionario implements Serializable{
         }
         return true;
     }
-    
+
     @Transient // não persistente;
-    public String getNascimentoFormatado(){
+    public String getNascimentoFormatado() {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         return sdf.format(nascimentoFuncionario.getTime());
     }
-    
+
 }

@@ -6,31 +6,32 @@ import modelo.Cidade;
 import modelo.DAOCidade;
 
 public class FormCidade extends javax.swing.JDialog {
+
     DAOCidade objDAOCidade = new DAOCidade();
-    
+
     public FormCidade(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         atualizaTabela();
         trataEdicao(false);
     }
-    
-    public void atualizaTabela(){
+
+    public void atualizaTabela() {
         listCidade.clear();
         listCidade.addAll(objDAOCidade.getLista());
-        int linha = listCidade.size()-1;
-        if(linha >= 0){
+        int linha = listCidade.size() - 1;
+        if (linha >= 0) {
             tblCidade.setRowSelectionInterval(linha, linha);
             tblCidade.scrollRectToVisible(tblCidade.getCellRect(linha, linha, true));
         }
     }
-    
-    private void trataEdicao(boolean editando){
+
+    private void trataEdicao(boolean editando) {
         btnCancelar.setEnabled(editando);
         btnSalvar.setEnabled(editando);
-        btnEditar.setEnabled(editando);
-        int linha = listCidade.size()-1;
-        if(linha<0){
+        btnEditar.setEnabled(!editando);
+        int linha = listCidade.size() - 1;
+        if (linha < 0) {
             btnEditar.setEnabled(false);
             btnExcluir.setEnabled(false);
             txtCodigo.setText("");
@@ -49,20 +50,20 @@ public class FormCidade extends javax.swing.JDialog {
         tblCidade.setEnabled(editando);
     }
 
-    public boolean validaCampos(){
-        if(!(txtCidade.getText().length()>0)){
+    public boolean validaCampos() {
+        if (!(txtCidade.getText().length() > 0)) {
             JOptionPane.showMessageDialog(null, "Informe o nome da Cidade!");
             txtCidade.requestFocus();
             return false;
         }
-        if(!(cbxUF.getSelectedIndex()>=0)){
+        if (!(cbxUF.getSelectedIndex() >= 0)) {
             JOptionPane.showMessageDialog(null, "Selecione uma UF!");
             cbxUF.requestFocus();
-            return false; 
+            return false;
         }
         return true;
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -297,7 +298,7 @@ public class FormCidade extends javax.swing.JDialog {
     }//GEN-LAST:event_btnFecharActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        if(validaCampos()){
+        if (validaCampos()) {
             trataEdicao(false);
             int linhaSelecionada = tblCidade.getSelectedRow();
             Cidade objCidade = listCidade.get(linhaSelecionada);
@@ -310,7 +311,7 @@ public class FormCidade extends javax.swing.JDialog {
         trataEdicao(true);
         //Cidade cidade = new Cidade();
         listCidade.add(new Cidade());
-        int linha = listCidade.size()-1;
+        int linha = listCidade.size() - 1;
         tblCidade.setRowSelectionInterval(linha, linha);
         txtCidade.requestFocus();
     }//GEN-LAST:event_btnNovoActionPerformed
@@ -318,7 +319,7 @@ public class FormCidade extends javax.swing.JDialog {
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         trataEdicao(true);
         txtCidade.requestFocus();
-        
+
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -328,7 +329,7 @@ public class FormCidade extends javax.swing.JDialog {
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         int opcao = JOptionPane.showOptionDialog(null, "Confirmar exclusão?", "Pergunta", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new String[]{"Sim", "Não"}, "Sim");
-        if(opcao == 0){
+        if (opcao == 0) {
             int linhaSelecionada = tblCidade.getSelectedRow();
             Cidade objCidade = listCidade.get(linhaSelecionada);
             objDAOCidade.remover(objCidade);
@@ -344,26 +345,28 @@ public class FormCidade extends javax.swing.JDialog {
 
     private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
         int linha = tblCidade.getSelectedRow();
-        if(linha-1 >= 0)
+        if (linha - 1 >= 0) {
             linha--;
-        
+        }
+
         tblCidade.setRowSelectionInterval(linha, linha);
         tblCidade.scrollRectToVisible(tblCidade.getCellRect(linha, 0, true));
     }//GEN-LAST:event_btnAnteriorActionPerformed
 
     private void btnProximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProximoActionPerformed
         int linha = tblCidade.getSelectedRow();
-        if((linha+1) <= (tblCidade.getRowCount())-1)
+        if ((linha + 1) <= (tblCidade.getRowCount()) - 1) {
             linha++;
-        
+        }
+
         tblCidade.setRowSelectionInterval(linha, linha);
         tblCidade.scrollRectToVisible(tblCidade.getCellRect(linha, 0, true));
     }//GEN-LAST:event_btnProximoActionPerformed
 
     private void btnUltimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUltimoActionPerformed
-       int linha = tblCidade.getRowCount()-1;
-       tblCidade.setRowSelectionInterval(linha, linha);
-       tblCidade.scrollRectToVisible(tblCidade.getCellRect(linha, 0, true));
+        int linha = tblCidade.getRowCount() - 1;
+        tblCidade.setRowSelectionInterval(linha, linha);
+        tblCidade.scrollRectToVisible(tblCidade.getCellRect(linha, 0, true));
     }//GEN-LAST:event_btnUltimoActionPerformed
 
     /**
