@@ -42,7 +42,7 @@ public class DAOFuncionario {
     }
 
     public boolean incluir(Funcionario obj) {
-        String sql = "insert into funcionario (nome, salario, nascimento, cidade) values(?,?, ?, ?)";
+        String sql = "insert into funcionario (nome, salario, nascimento, cidade) values(?, ?, ?, ?)";
         try {
             PreparedStatement pst = Conexao.getPreparedStatement(sql);
             pst.setString(1, obj.getNomeFuncionario());
