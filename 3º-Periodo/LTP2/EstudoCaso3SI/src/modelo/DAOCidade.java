@@ -29,7 +29,7 @@ public class DAOCidade { // Data Access Object
     }
 
     public boolean incluir(Cidade obj) {
-        String sql = "insert into cidade (nome,uf) values(?,?)";
+        String sql = "insert into cidade (nome, uf) values(?,?)";
         try {
             PreparedStatement pst = Conexao.getPreparedStatement(sql);
             pst.setString(1, obj.getNomeCidade());

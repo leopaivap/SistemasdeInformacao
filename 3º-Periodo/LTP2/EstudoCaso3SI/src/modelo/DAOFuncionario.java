@@ -9,9 +9,9 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 public class DAOFuncionario {
-    
+
     DAOCidade objDAOCidade = new DAOCidade();
-    
+
     public List<Funcionario> getLista() {
         String sql = "select * from funcionario";
         List<Funcionario> listaFuncionario = new ArrayList<>();
@@ -32,7 +32,7 @@ public class DAOFuncionario {
 
                 //mostrar foreign key
                 objFuncionario.setObjCidade(objDAOCidade.localizar(rs.getInt("cidade")));
-                
+
                 listaFuncionario.add(objFuncionario);
             }
         } catch (SQLException ex) {
@@ -40,13 +40,16 @@ public class DAOFuncionario {
         }
         return listaFuncionario;
     }
-    
+
     public boolean incluir(Funcionario obj) {
-        String sql = "insert into funcionario (salario, nascimento, nome, cidade) values(?,?)";
+        String sql = "insert into funcionario (nome, salario, nascimento, cidade) values(?,?, ?, ?)";
         try {
             PreparedStatement pst = Conexao.getPreparedStatement(sql);
             pst.setString(1, obj.getNomeFuncionario());
-            pst.setString(2, obj.getUfFuncionario());
+            pst.setDouble(2, obj.getSalarioFuncionario());
+            pst.setDate(3, new java.sql.Date(obj.getNascimentoFuncionario().getTimeInMillis()));
+            pst.setInt(4, obj.getObjCidade().getCodigoCidade());
+
             if (pst.executeUpdate() > 0) {
                 JOptionPane.showMessageDialog(null, "Funcionario incluido");
                 return true;
@@ -59,19 +62,22 @@ public class DAOFuncionario {
         }
         return false;
     }
-    
+
     public boolean alterar(Funcionario obj) {
-        String sql = "update funcionario set nome = ?, uf = ? where codigo = ?";
+        String sql = "update funcionario set nome = ?, salario = ?, nascimento = ?, cidade = ? where codigo = ?";
         try {
             PreparedStatement pst = Conexao.getPreparedStatement(sql);
             pst.setString(1, obj.getNomeFuncionario());
-            pst.setString(2, obj.getUfFuncionario());
-            pst.setInt(3, obj.getCodigoFuncionario());
+            pst.setDouble(2, obj.getSalarioFuncionario());
+            pst.setDate(3, new java.sql.Date(obj.getNascimentoFuncionario().getTimeInMillis()));
+            pst.setInt(4, obj.getObjCidade().getCodigoCidade());
+            pst.setInt(5, obj.getCodigoFuncionario());
+
             if (pst.executeUpdate() > 0) {
                 JOptionPane.showMessageDialog(null, "Funcionario alterado");
                 return true;
             } else {
-                
+
                 JOptionPane.showMessageDialog(null, "Funcionario não alterado");
                 return false;
             }
@@ -80,7 +86,7 @@ public class DAOFuncionario {
         }
         return false;
     }
-    
+
     public boolean remover(Funcionario obj) {
         String sql = "delete from funcionario where codigo = ?";
         try {
@@ -90,7 +96,7 @@ public class DAOFuncionario {
                 JOptionPane.showMessageDialog(null, "Funcionario removido");
                 return true;
             } else {
-                
+
                 JOptionPane.showMessageDialog(null, "Funcionario não removido");
                 return false;
             }
@@ -99,13 +105,13 @@ public class DAOFuncionario {
         }
         return false;
     }
-    
+
     public boolean salvar(Funcionario obj) {
         if (obj.getCodigoFuncionario() == null) {
             return incluir(obj);
         } else {
             return alterar(obj);
         }
-        
+
     }
 }

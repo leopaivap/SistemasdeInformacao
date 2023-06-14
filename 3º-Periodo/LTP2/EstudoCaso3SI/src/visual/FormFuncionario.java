@@ -35,7 +35,7 @@ public class FormFuncionario extends javax.swing.JDialog {
     private void trataEdicao(boolean editando) {
         btnCancelar.setEnabled(editando);
         btnSalvar.setEnabled(editando);
-        btnEditar.setEnabled(editando);
+        btnEditar.setEnabled(!editando);
         int linha = listFuncionario.size() - 1;
         if (linha < 0) {
             btnEditar.setEnabled(false);
