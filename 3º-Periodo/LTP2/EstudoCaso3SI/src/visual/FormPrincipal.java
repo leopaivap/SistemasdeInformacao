@@ -3,7 +3,6 @@ package visual;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
-
 public class FormPrincipal extends javax.swing.JFrame {
 
     public FormPrincipal() {
@@ -78,10 +77,10 @@ public class FormPrincipal extends javax.swing.JFrame {
         FormCidade form = new FormCidade(this, true);
         //this: chama a partir desse form
         //true:sobre o form principal e não deixa acessa-lo
-        
+
         form.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
         //não deixa fechar o form pelo x
-        
+
         form.setLocationRelativeTo(null); // centro
         form.setResizable(false); // retira o botão maximizar
         form.setVisible(true); // mostra o form
@@ -92,10 +91,10 @@ public class FormPrincipal extends javax.swing.JFrame {
         FormFuncionario form = new FormFuncionario(this, true);
         //this: chama a partir desse form
         //true:sobre o form principal e não deixa acessa-lo
-        
+
         form.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
         //não deixa fechar o form pelo x
-        
+
         form.setLocationRelativeTo(null); // centro
         form.setResizable(false); // retira o botão maximizar
         form.setVisible(true); // mostra o form
@@ -133,11 +132,11 @@ public class FormPrincipal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-               // new FormPrincipal().setVisible(true);           
-               FormPrincipal form = new FormPrincipal();
-               form.setLocationRelativeTo(null); // fazer janela aparecer no centro da tela
-               form.setVisible(true);
-               
+                // new FormPrincipal().setVisible(true);           
+                FormPrincipal form = new FormPrincipal();
+                form.setLocationRelativeTo(null); // fazer janela aparecer no centro da tela
+                form.setVisible(true);
+
             }
         });
     }

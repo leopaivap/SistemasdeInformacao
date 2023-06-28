@@ -1,5 +1,6 @@
 package visual;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import modelo.Cidade;
@@ -8,9 +9,10 @@ import modelo.Funcionario;
 import modelo.DAOFuncionario;
 
 public class FormFuncionario extends javax.swing.JDialog {
+
     DAOFuncionario objDAOFuncionario = new DAOFuncionario();
     DAOCidade objDAOCidade = new DAOCidade();
-    
+
     public FormFuncionario(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -19,23 +21,23 @@ public class FormFuncionario extends javax.swing.JDialog {
         listCidade.clear();
         listCidade.addAll(objDAOCidade.getLista());
     }
-    
-    public void atualizaTabela(){
+
+    public void atualizaTabela() {
         listFuncionario.clear();
         listFuncionario.addAll(objDAOFuncionario.getLista());
-        int linha = listFuncionario.size()-1;
-        if(linha >= 0){
+        int linha = listFuncionario.size() - 1;
+        if (linha >= 0) {
             tblFuncionario.setRowSelectionInterval(linha, linha);
             tblFuncionario.scrollRectToVisible(tblFuncionario.getCellRect(linha, linha, true));
         }
     }
-    
-    private void trataEdicao(boolean editando){
+
+    private void trataEdicao(boolean editando) {
         btnCancelar.setEnabled(editando);
         btnSalvar.setEnabled(editando);
-        btnEditar.setEnabled(editando);
-        int linha = listFuncionario.size()-1;
-        if(linha<0){
+        btnEditar.setEnabled(!editando);
+        int linha = listFuncionario.size() - 1;
+        if (linha < 0) {
             btnEditar.setEnabled(false);
             btnExcluir.setEnabled(false);
             txtCodigo.setText("");
@@ -58,30 +60,39 @@ public class FormFuncionario extends javax.swing.JDialog {
         txtSalario.setEnabled(editando);
     }
 
-    public boolean validaCampos(){
-        if(!(txtNomeFuncionario.getText().length()>0)){
+    public boolean validaCampos() {
+        if (!(txtNomeFuncionario.getText().length() > 0)) {
             JOptionPane.showMessageDialog(null, "Informe o nome da Cidade!");
             txtNomeFuncionario.requestFocus();
             return false;
         }
-        if(!(cbxCidade.getSelectedIndex()>=0)){
+        if (!(cbxCidade.getSelectedIndex() >= 0)) {
             JOptionPane.showMessageDialog(null, "Selecione uma UF!");
             cbxCidade.requestFocus();
-            return false; 
-        }
-         if(!(txtNascimento.getText().length()>0)){
-            JOptionPane.showMessageDialog(null, "Informe a data de nascimento!");
-            txtNascimento.requestFocus();
             return false;
         }
-          if(!(txtSalario.getText().length()>0)){
+        if (!(txtNascimento.getText().length() > 0)) {
+            ;
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            sdf.setLenient(false);
+            try {
+                sdf.parse(txtNascimento.getText());
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Informe a data de nascimento!");
+                txtNascimento.requestFocus();
+
+            }
+            return false;
+
+        }
+        if (!(txtSalario.getText().length() > 0)) {
             JOptionPane.showMessageDialog(null, "Informe o salário!");
             txtSalario.requestFocus();
             return false;
         }
         return true;
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -355,7 +366,7 @@ public class FormFuncionario extends javax.swing.JDialog {
     }//GEN-LAST:event_btnFecharActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        if(validaCampos()){
+        if (validaCampos()) {
             trataEdicao(false);
             int linhaSelecionada = tblFuncionario.getSelectedRow();
             Funcionario objFuncionario = listFuncionario.get(linhaSelecionada);
@@ -368,7 +379,7 @@ public class FormFuncionario extends javax.swing.JDialog {
         trataEdicao(true);
         //Cidade cidade = new Cidade();
         listFuncionario.add(new Funcionario());
-        int linha = listFuncionario.size()-1;
+        int linha = listFuncionario.size() - 1;
         tblFuncionario.setRowSelectionInterval(linha, linha);
         txtNomeFuncionario.requestFocus();
     }//GEN-LAST:event_btnNovoActionPerformed
@@ -376,7 +387,7 @@ public class FormFuncionario extends javax.swing.JDialog {
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         trataEdicao(true);
         txtNomeFuncionario.requestFocus();
-        
+
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -386,7 +397,7 @@ public class FormFuncionario extends javax.swing.JDialog {
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         int opcao = JOptionPane.showOptionDialog(null, "Confirmar exclusão?", "Pergunta", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new String[]{"Sim", "Não"}, "Sim");
-        if(opcao == 0){
+        if (opcao == 0) {
             int linhaSelecionada = tblFuncionario.getSelectedRow();
             Funcionario objFuncionario = listFuncionario.get(linhaSelecionada);
             objDAOFuncionario.remover(objFuncionario);
@@ -402,26 +413,28 @@ public class FormFuncionario extends javax.swing.JDialog {
 
     private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
         int linha = tblFuncionario.getSelectedRow();
-        if(linha-1 >= 0)
+        if (linha - 1 >= 0) {
             linha--;
-        
+        }
+
         tblFuncionario.setRowSelectionInterval(linha, linha);
         tblFuncionario.scrollRectToVisible(tblFuncionario.getCellRect(linha, 0, true));
     }//GEN-LAST:event_btnAnteriorActionPerformed
 
     private void btnProximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProximoActionPerformed
         int linha = tblFuncionario.getSelectedRow();
-        if((linha+1) <= (tblFuncionario.getRowCount())-1)
+        if ((linha + 1) <= (tblFuncionario.getRowCount()) - 1) {
             linha++;
-        
+        }
+
         tblFuncionario.setRowSelectionInterval(linha, linha);
         tblFuncionario.scrollRectToVisible(tblFuncionario.getCellRect(linha, 0, true));
     }//GEN-LAST:event_btnProximoActionPerformed
 
     private void btnUltimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUltimoActionPerformed
-       int linha = tblFuncionario.getRowCount()-1;
-       tblFuncionario.setRowSelectionInterval(linha, linha);
-       tblFuncionario.scrollRectToVisible(tblFuncionario.getCellRect(linha, 0, true));
+        int linha = tblFuncionario.getRowCount() - 1;
+        tblFuncionario.setRowSelectionInterval(linha, linha);
+        tblFuncionario.scrollRectToVisible(tblFuncionario.getCellRect(linha, 0, true));
     }//GEN-LAST:event_btnUltimoActionPerformed
 
     private void cbxCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxCidadeActionPerformed
