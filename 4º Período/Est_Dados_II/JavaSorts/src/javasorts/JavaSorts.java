@@ -46,7 +46,8 @@ public class JavaSorts {
         printArray(vetor);
         System.out.println("\nVetor Ordenado: ");
         //BubbleSort.bSort(vetor);
-        SelectionSort.sSort(vetor);
+        //SelectionSort.sSort(vetor);
+        InsertionSort.iSort(vetor);
         printArray(vetor);
     }
 
