@@ -2,11 +2,15 @@ package javasorts;
 
 public class SelectionSort {
 
+    public static long comparacoes = 0, trocas = 0;
+
     private static int indexMinArray(int array[], int posAtual) {
         int k = posAtual;
-        for (int i = posAtual + 1; i < array.length; i++) 
+        for (int i = posAtual + 1; i < array.length; i++){
+            comparacoes++;
             if (array[i] < array[k]) 
                 k = i;
+        }
         return k; // indice do menor valor
     }
 
@@ -18,6 +22,7 @@ public class SelectionSort {
             int temp = array[i];
             array[i] = array[k];
             array[k] = temp;
+            trocas++;
         }
     }
 }
