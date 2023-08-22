@@ -19,8 +19,11 @@ public class Venda {
 
 	public void getListaProdutos() {
 		int i = 0;
-		for (Produtos produtos : listaCompras)
+		for (Produtos produtos : listaCompras) {
 			System.out.println(i + " - " + produtos.getNome());
+			i++;
+		}
+		
 	}
 
 	public void cancelaVenda() {
@@ -31,11 +34,11 @@ public class Venda {
 		double valorTotal = 0;
 		int i = 0;
 		for (Produtos produtos : listaCompras) {
-			System.out.println("Item " + i + " - " + produtos.getNome() + " - R$" + produtos.getPrecoVenda());
+			System.out.println("Item " + i + " - " + produtos.getNome() + " - R$" + String.format("%.2f", produtos.getPrecoVenda()));
 			valorTotal += produtos.getPrecoVenda();
 			i++;
 		}
-		System.out.println("Compra Finalizada!\nValor Total: R$" + valorTotal);
+		System.out.println("Compra Finalizada!\nValor Total: R$" + String.format("%.2f", valorTotal));
 		cancelaVenda();
 	}
 }
