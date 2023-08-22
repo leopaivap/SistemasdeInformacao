@@ -263,8 +263,10 @@ public class Main {
 				break;
 
 			}
-			System.out.println("\n\nPressione um botao para continuar...");
-			scan.nextLine();
+			if( op != 0) {
+				System.out.println("\n\nPressione um botao para continuar...");
+				scan.nextLine();
+			}	
 		} while (op != 0);
 
 	}

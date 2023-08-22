@@ -38,7 +38,7 @@ public class Venda {
 			valorTotal += produtos.getPrecoVenda();
 			i++;
 		}
-		System.out.println("Compra Finalizada!\nValor Total: R$" + String.format("%.2f", valorTotal));
+		System.out.println("\nCompra Finalizada!\nValor Total: R$" + String.format("%.2f", valorTotal));
 		cancelaVenda();
 	}
 }
