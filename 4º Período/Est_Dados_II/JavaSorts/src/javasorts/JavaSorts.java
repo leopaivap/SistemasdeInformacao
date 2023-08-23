@@ -18,9 +18,13 @@ public class JavaSorts {
         //limpa tela
         Scanner scan = new Scanner(System.in);
         int op;
+        System.out.println("-- Metodos de Ordenacao --");
         System.out.println("1- Bubble Sort");
         System.out.println("2- Selection Sort");
         System.out.println("3- Insertion Sort");
+        System.out.println("4- Linear Search");
+        System.out.println("5- Binary Search");
+        System.out.println("0- Sair");
         /* System.out.println("1- Bubble Sort");
         System.out.println("1- Bubble Sort");
         System.out.println("1- Bubble Sort");
@@ -35,11 +39,12 @@ public class JavaSorts {
         Scanner scan = new Scanner(System.in);
         Random rand = new Random();
 
-        int tamanho, op, opSorts;
+        int tamanho, op, opSorts, valorBusca;
         long tempoInicial, tempoFinal;
         System.out.println("Tamanho do vetor: ");
         tamanho = scan.nextInt();
         int[] vetor = new int[tamanho];
+        int[] array = vetor.clone();
 
         op = menuEntrada();
         switch (op) {
@@ -47,7 +52,7 @@ public class JavaSorts {
                 for (int i = 0; i < vetor.length; i++) {
                     vetor[i] = rand.nextInt(100);
                 }
-                System.out.println("Vetor aleatorio gerado!");
+                System.out.println("Vetor aleatorio gerado!\n");
                 break;
 
             case 2:
@@ -61,49 +66,81 @@ public class JavaSorts {
                 System.out.println("Opcao invalida!");
                 break;
         }
+        do {
+            array = vetor.clone();
+            opSorts = menuSorts();
 
-        opSorts = menuSorts();
-        switch (opSorts) {
-            case 1:
-                //Bubble Sort
-                tempoInicial = System.currentTimeMillis();
-                BubbleSort.bSort(vetor);
-                tempoFinal = System.currentTimeMillis();
-                System.out.println("Comparações: " + BubbleSort.comparacoes);
-                System.out.println("Trocas: " + BubbleSort.trocas);
-                System.out.println("Tempo: " + (tempoFinal - tempoInicial) + "ms");
-                break;
+            switch (opSorts) {
+                case 1:
+                    //Bubble Sort
+                    tempoInicial = System.currentTimeMillis();
+                    BubbleSort.bSort(array);
+                    tempoFinal = System.currentTimeMillis();
+                    System.out.println("\n-- Bubble Sort --");
+                    System.out.println("Comparações: " + BubbleSort.comparacoes);
+                    System.out.println("Trocas: " + BubbleSort.trocas);
+                    System.out.println("Tempo: " + (tempoFinal - tempoInicial) + "ms\n");
+                    break;
 
-            case 2:
-                //Selection Sort
-                tempoInicial = System.currentTimeMillis();
-                SelectionSort.sSort(vetor);
-                tempoFinal = System.currentTimeMillis();
-                System.out.println("Comparações: " + SelectionSort.comparacoes);
-                System.out.println("Trocas: " + SelectionSort.trocas);
-                System.out.println("Tempo: " + (tempoFinal - tempoInicial) + "ms");
-                break;
+                case 2:
+                    //Selection Sort
+                    tempoInicial = System.currentTimeMillis();
+                    SelectionSort.sSort(array);
+                    tempoFinal = System.currentTimeMillis();
+                    System.out.println("\n-- Selection Sort --");
+                    System.out.println("Comparações: " + SelectionSort.comparacoes);
+                    System.out.println("Trocas: " + SelectionSort.trocas);
+                    System.out.println("Tempo: " + (tempoFinal - tempoInicial) + "ms\n");
+                    break;
 
-            case 3:
-                //Insertion Sort
-                tempoInicial = System.currentTimeMillis();
-                InsertionSort.iSort(vetor);
-                tempoFinal = System.currentTimeMillis();
-                System.out.println("Comparações: " + InsertionSort.comparacoes);
-                System.out.println("Deslocamentos: " + InsertionSort.deslocamento);
-                System.out.println("Tempo: " + (tempoFinal - tempoInicial) + "ms");
-                break;
+                case 3:
+                    //Insertion Sort
+                    tempoInicial = System.currentTimeMillis();
+                    InsertionSort.iSort(array);
+                    tempoFinal = System.currentTimeMillis();
+                    System.out.println("\n-- Insertion Sort --");
+                    System.out.println("Comparações: " + InsertionSort.comparacoes);
+                    System.out.println("Deslocamentos: " + InsertionSort.deslocamento);
+                    System.out.println("Tempo: " + (tempoFinal - tempoInicial) + "ms\n");
+                    break;
 
-            default:
-                System.out.println("Opcao invalida!");
-                break;
+                case 4:
+                    System.out.println("Valor para Busca Linear: ");
+                    valorBusca = scan.nextInt();
+                    if (Search.linearSearch(array, valorBusca)) {
+                        System.out.println("Valor Encontrado!");
+                    } else {
+                        System.out.println("Valor Inexistente!");
+                    }
+                    break;
 
-        }
+                case 5:
+                    System.out.println("Valor para Busca Binaria: ");
+                    valorBusca = scan.nextInt();
+                    if (Search.binarySearch(array, valorBusca)) {
+                        System.out.println("Valor Encontrado!");
+                    } else {
+                        System.out.println("Valor Inexistente!");
+                    }
+                    break;
 
-        System.out.println("Vetor: ");
-        printArray(vetor);
-        System.out.println("\nVetor Ordenado: ");
-        printArray(vetor);
+                case 10:
+                    // Implementar comparacao de metodos de ordenacao10
+
+                    break;
+
+                default:
+                    System.out.println("Opcao invalida!");
+                    break;
+
+            }
+
+            /*System.out.println("Vetor: ");
+            printArray(vetor);
+            System.out.println("\nVetor Ordenado: ");
+            printArray(array);*/
+        } while (opSorts != 0);
+
     }
 
     public static void printArray(int array[]) {
