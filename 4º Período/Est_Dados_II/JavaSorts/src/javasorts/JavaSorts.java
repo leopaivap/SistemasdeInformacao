@@ -152,5 +152,12 @@ public class JavaSorts {
         }
         System.out.println("\n");
     }
+    
+    public static void printInterval(int array[], int ini, int fim) {
+        for (int i = ini; i <= fim; i++) {
+            System.out.print(array[i] + " | ");
+        }
+        System.out.println("\n");
+    }
 
 }
