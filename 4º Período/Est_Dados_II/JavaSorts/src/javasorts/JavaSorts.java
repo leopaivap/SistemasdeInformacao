@@ -109,6 +109,7 @@ public class JavaSorts {
                     valorBusca = scan.nextInt();
                     if (Search.linearSearch(array, valorBusca)) {
                         System.out.println("Valor Encontrado!");
+                        System.out.println("Comparacoes: " + Search.compLinear);
                     } else {
                         System.out.println("Valor Inexistente!");
                     }
@@ -117,8 +118,10 @@ public class JavaSorts {
                 case 5:
                     System.out.println("Valor para Busca Binaria: ");
                     valorBusca = scan.nextInt();
+                    InsertionSort.iSort(array);
                     if (Search.binarySearch(array, valorBusca)) {
                         System.out.println("Valor Encontrado!");
+                        System.out.println("Comparacoes: " + Search.compBinaria);
                     } else {
                         System.out.println("Valor Inexistente!");
                     }
