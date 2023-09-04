@@ -1,0 +1,42 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class User {
+	private String name, cpf;
+	private List<String> friends;
+
+	public User() {
+		friends = new ArrayList<>();
+		friends.add("Luiza");
+		friends.add("Rosana");
+		friends.add(null);
+		
+	}
+	
+	public void setFriends(List<String> friends) {
+		this.friends = friends;
+	}
+	
+	public List<String> getFriends(){
+		return friends;
+	}
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		if( cpf == null || cpf.equals(""))
+			return;
+		this.cpf = cpf;
+	}
+	
+}

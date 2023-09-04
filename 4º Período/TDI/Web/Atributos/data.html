@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data-*</title>
+</head>
+<body>
+    <ul data-cpf="022104" data-lastname="Paiva">
+        <li>Nome: Leonardo</li>
+        <li>Fone: (35) 99974-3455</li>
+    </ul>
+    <ul data-cpf="123456" data-lastname="Sobrenome">
+        <li style="background-color: red;" dir="ltr">Nome: Outro</li>
+        <li>Fone: (35) 99974-3455</li>
+    </ul>
+    <p dir="rtl">Nome: Teste RTL</p>
+
+    <script>
+        const uls = document.querySelectorAll('ul').forEach((ul => {
+            console.log(ul.dataset.cpf);
+            console.log(ul.dataset.lastname);
+        }));
+       
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+package model;
+
+public class Tax {
+	private String abbr, name;
+	private double aliquot;
+
+	public Tax(String abbr, String name, double aliquot) {
+		this.abbr = abbr;
+		this.name = name;
+		setAliquit(aliquot);
+	}
+
+	public double calculate() {
+		// TODO implementar cálculo de impostos
+		return 0;
+	}
+
+	private void setAliquit(double aliquot) {
+		this.aliquot = aliquot / 100;
+	}
+}

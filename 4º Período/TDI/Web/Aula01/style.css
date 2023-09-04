@@ -1,0 +1,18 @@
+h3 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+p {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+    color: red;
+}
+
+body {
+    background-color: lightgrey;
+    color: blueviolet;
+}
+
+#par {
+    color: green;
+}

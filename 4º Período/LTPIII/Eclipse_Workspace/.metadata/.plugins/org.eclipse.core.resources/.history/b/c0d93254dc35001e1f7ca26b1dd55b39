@@ -1,0 +1,16 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		User usuario = new User();
+		usuario.setName("Leo");
+		usuario.setCpf("120");
+		
+		System.out.println("Lista de Amigos");
+		for(String friendName : usuario.getFriends()) {
+			System.out.println(friendName);
+		}
+
+	}
+
+}
