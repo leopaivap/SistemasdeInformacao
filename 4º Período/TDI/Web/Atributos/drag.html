@@ -6,13 +6,13 @@
     <title>Drag and Drop</title>
 
     <style>
-        div{
+        div {
             background: yellow;
             width: 150px;
             height: 150px;
         }
 
-        button{
+        button {
             margin: 10px;
             display: block;
         }
@@ -22,9 +22,38 @@
 
 <body>
     <button id="b1" type="button" draggable="true">Elemento1</button>
-    <button id="b2" type="button"draggable="true">Elemento2</button>
+    <button id="b2" type="button" draggable="true">Elemento2</button>
 
-    <div dropzone="move"></div>
+    <div id="divDrop" dropzone="move"></div>
 </body>
+
+<script>
+    b1.addEventListener('dragstart', e => {
+        e.dataTransfer.setData('Text', e.target.id);
+    });
+    b2.addEventListener('dragstart', e => {
+        e.dataTransfer.setData('Text', e.target.id);
+    });
+
+    divDrop.addEventListener('dragover', e => {
+        e.preventDefault();
+    })
+
+    divDrop.addEventListener('drop', e => {
+        const idElement = e.dataTransfer.getData('Text');
+        const button = document.getElementById(idElement);
+        const action = e.target.getAttribute('dropzone');
+
+        if (action == 'move') {
+            e.target.appendChild(button);
+
+        } else if (action == 'copy') {
+            const buttonCopy = button.cloneNode(true);
+            buttonCopy.setAttribute('id', 'cp-' + idElement);
+            e.target.appendChild(buttonCopy);
+        }
+
+    })
+</script>
 
 </html>
