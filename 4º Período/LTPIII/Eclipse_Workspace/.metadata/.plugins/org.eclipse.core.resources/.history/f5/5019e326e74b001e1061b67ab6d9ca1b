@@ -7,15 +7,14 @@ public class Main {
 
 	public static void main(String[] args) throws Exception {
 		Product arroz = new Product("Arroz Pileco", 100, 30);
-
+		
+	
 		Tax ipi = new Tax("IPI", "Imposto Prod. Industrializado", 8);
 		Tax iss = new Tax("ISS", "Imposto Circ. Mercadorias", 12);
-		Tax icms = new Tax("ICMS", "I. C. Mercadorias", 10);
-
+		
 		arroz.addTax(ipi);
 		arroz.addTax(iss);
-		arroz.addTax(icms);
-
+		
 		System.out.println(arroz.getName() + " R$:" + arroz.calculateSalePrice());
 
 	}

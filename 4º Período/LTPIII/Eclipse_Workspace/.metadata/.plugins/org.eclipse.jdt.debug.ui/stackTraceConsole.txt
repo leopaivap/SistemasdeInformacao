@@ -1,0 +1,5 @@
+public double calculate(Product p) {
+
+    return p.getCostPrice() * aliquot;
+
+}

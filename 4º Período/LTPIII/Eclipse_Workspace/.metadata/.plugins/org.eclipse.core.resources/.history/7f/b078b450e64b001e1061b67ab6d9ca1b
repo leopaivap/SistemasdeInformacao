@@ -1,5 +1,7 @@
 package model;
 
+import java.util.concurrent.ExecutionException;
+
 public class Tax {
 	private String abbr, name;
 	private double aliquot;
@@ -16,15 +18,15 @@ public class Tax {
 			return false;
 		if (!(obj instanceof Tax))
 			return false;
-
-		Tax tax = (Tax) obj;
-
+		
+		Tax tax = (Tax)obj;
+		
 		return this.abbr.equals(tax.abbr);
 	}
 
-	public double calculate(Product p) {
-		return p.getCostPrice() * aliquot;
-
+	public double calculate() {
+		// TODO implementar cálculo de impostos
+		return 0;
 	}
 
 	private void setAliquot(double aliquot) {

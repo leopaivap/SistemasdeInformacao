@@ -5,4 +5,5 @@
     <fullyQualifiedTypeName name="Student"/>
     <fullyQualifiedTypeName name="java.lang.Exception"/>
     <fullyQualifiedTypeName name="java.util.concurrent.ExecutionException"/>
+    <fullyQualifiedTypeName name="model.Product"/>
 </qualifiedTypeNameHistroy>

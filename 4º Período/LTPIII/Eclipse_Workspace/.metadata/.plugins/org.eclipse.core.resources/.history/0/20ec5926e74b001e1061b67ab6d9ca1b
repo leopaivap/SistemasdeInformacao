@@ -32,8 +32,9 @@ public class Product {
 		// Calcular os impostos
 		double taxesSum = 0;
 
-		for (Tax tax : taxes)
+		for (Tax tax : taxes) {
 			taxesSum += tax.calculate(this);
+		}
 
 		double finalCost = this.costPrice + taxesSum;
 		double finalPrice = finalCost + (finalCost * profit);

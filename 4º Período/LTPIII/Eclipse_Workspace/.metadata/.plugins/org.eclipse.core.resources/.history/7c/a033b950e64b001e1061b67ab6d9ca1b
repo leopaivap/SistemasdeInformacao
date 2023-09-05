@@ -15,33 +15,19 @@ public class Product {
 		this.taxes = new ArrayList<>();
 	}
 
-	public boolean addTax(Tax tax) throws Exception {
-
-		if (tax == null)
+	public boolean addTax(Tax tax) throws Exception{
+		
+		if(tax == null)
 			throw new Exception("Imposto não pode ser nulo.");
-
-		if (taxes.contains(tax))
+		
+		if(taxes.contains(tax))
 			return false;
 		else
 			taxes.add(tax);
-
+		
 		return true;
 	}
-
-	public double calculateSalePrice() {
-		// Calcular os impostos
-		double taxesSum = 0;
-
-		for (Tax tax : taxes)
-			taxesSum += tax.calculate(this);
-
-		double finalCost = this.costPrice + taxesSum;
-		double finalPrice = finalCost + (finalCost * profit);
-
-		return finalPrice;
-
-	}
-
+	
 	private void setProfit(double profit) throws Exception {
 
 		if (profit <= 0)
@@ -65,13 +51,4 @@ public class Product {
 
 		this.name = name;
 	}
-
-	public String getName() {
-		return name;
-	}
-
-	public double getCostPrice() {
-		return costPrice;
-	}
-
 }
