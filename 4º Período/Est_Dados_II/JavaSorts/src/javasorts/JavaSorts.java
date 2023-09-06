@@ -45,6 +45,23 @@ public class JavaSorts {
         tamanho = scan.nextInt();
         int[] vetor = new int[tamanho];
         int[] array = vetor.clone();
+        
+        // vetores para mergesort
+        int[] vetorPrincipal = new int[tamanho];
+        int[] vetorAux = new int[vetorPrincipal.length];
+        
+        /*
+        //MergeSort   
+        long tempoInicialMergeSort = System.nanoTime();   
+
+        MergeSort.mergeSort(vetorPrincipal, vetorAux, 0, vetorPrincipal.length-1);
+
+        long tempoFinalMergeSort = System.nanoTime();
+        long tempoExecucaoNanosMergeSort = tempoFinalMergeSort - tempoInicialMergeSort;
+        double tempoExecucaoSegundosMergeSort = tempoExecucaoNanosMergeSort / 1e9; // Convertendo para segundos
+
+        System.out.println("\nTempo de execução: " + tempoExecucaoSegundosMergeSort + " segundos\n");
+        */
 
         op = menuEntrada();
         switch (op) {
