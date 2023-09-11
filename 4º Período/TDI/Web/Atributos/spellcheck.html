@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br" translate="yes">
+
+<head>
+    <meta charset="UTF-8">
+    <title>spellcheck</title>
+    <style>
+        input {
+            display: block;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- spellcheck verifica a ortografia com base no atributo lang -->
+
+    <form action="#">
+        <!-- tabindex é a ordem que o tab vai seguir -->
+        <input tabindex="1" spellcheck="true" type="text" id="a" name="a">
+        <input tabindex="2" spellcheck="true" type="text" id="b" name="b">
+        <label for="">Telefone: </label>
+        <input title="(xx) xxxxx-xxxx" placeholder="(xx) xxxxx-xxxx" tabindex="3" type="text" id="c" name="c">
+
+        <button tabindex="5" type="button">Limpar</button>
+        <!-- title == tooltip -->
+        <button title="Cadastra o cliente" tabindex="4" type="submit">Enviar</button>
+    </form>
+
+    <p translate="no">tapioca</p>
+</body>
+
+</html>

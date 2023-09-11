@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Atributo hidden</title>
+</head>
+
+<body>
+    <div>
+        <span>Saldo: </span>
+        <span id="cash">R$1.000,00</span>
+
+        <div>
+            <button id="buttonOcultar" type="button">Ocultar</button>
+        </div>
+        <script>
+            buttonOcultar.addEventListener('click', event => {
+                const spanCash = document.getElementById('cash');
+                const buttonHidden = document.getElementById('buttonOcultar');
+                const isHidden = spanCash.getAttribute('hidden');
+
+                if (isHidden == null) {
+                    buttonHidden.innerHTML = 'Exibir';
+                    spanCash.setAttribute('hidden', 'hidden');
+                } else {
+                    buttonHidden.innerHTML = 'Ocultar';
+                    spanCash.removeAttribute('hidden');
+                }
+            });
+        </script>
+    </div>
+</body>
+
+</html>
