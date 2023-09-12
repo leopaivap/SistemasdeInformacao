@@ -6,4 +6,9 @@
     <fullyQualifiedTypeName name="java.lang.Exception"/>
     <fullyQualifiedTypeName name="java.util.concurrent.ExecutionException"/>
     <fullyQualifiedTypeName name="model.Product"/>
+    <fullyQualifiedTypeName name="java.lang.Math"/>
+    <fullyQualifiedTypeName name="model.Square"/>
+    <fullyQualifiedTypeName name="model.Rect"/>
+    <fullyQualifiedTypeName name="model.Shape"/>
+    <fullyQualifiedTypeName name="model.Triangle"/>
 </qualifiedTypeNameHistroy>
