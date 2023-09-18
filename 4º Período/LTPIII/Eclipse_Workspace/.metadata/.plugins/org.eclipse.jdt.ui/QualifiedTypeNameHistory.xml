@@ -3,7 +3,6 @@
     <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="java.lang.Override"/>
     <fullyQualifiedTypeName name="Student"/>
-    <fullyQualifiedTypeName name="java.lang.Exception"/>
     <fullyQualifiedTypeName name="java.util.concurrent.ExecutionException"/>
     <fullyQualifiedTypeName name="model.Product"/>
     <fullyQualifiedTypeName name="java.lang.Math"/>
@@ -11,4 +10,7 @@
     <fullyQualifiedTypeName name="model.Rect"/>
     <fullyQualifiedTypeName name="model.Shape"/>
     <fullyQualifiedTypeName name="model.Triangle"/>
+    <fullyQualifiedTypeName name="model.IPI"/>
+    <fullyQualifiedTypeName name="model.ICMS"/>
+    <fullyQualifiedTypeName name="java.lang.Exception"/>
 </qualifiedTypeNameHistroy>
