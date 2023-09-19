@@ -25,7 +25,8 @@ public class FormSistema extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroupSearch = new javax.swing.ButtonGroup();
+        buttonGroupType = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         lblProx = new javax.swing.JLabel();
@@ -39,6 +40,8 @@ public class FormSistema extends javax.swing.JFrame {
         btnBusca = new javax.swing.JButton();
         rbLinear = new javax.swing.JRadioButton();
         rbBinaria = new javax.swing.JRadioButton();
+        rbName = new javax.swing.JRadioButton();
+        rbOrigin = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
@@ -102,9 +105,17 @@ public class FormSistema extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Data", "Cidade", "Condição", "Tendencia", "Mínima", "Máxima", "Vento Min", "Vento Max", "Direção Vento"
+                "Name", "Cylinders", "Horsepower", "Year", "Origin"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tabelaDados);
 
         cbOrdena.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Name", "Cylinders", "Horsepower", "Year", "Origin" }));
@@ -122,11 +133,22 @@ public class FormSistema extends javax.swing.JFrame {
             }
         });
 
-        buttonGroup1.add(rbLinear);
+        buttonGroupSearch.add(rbLinear);
         rbLinear.setText("Linear");
 
-        buttonGroup1.add(rbBinaria);
+        buttonGroupSearch.add(rbBinaria);
         rbBinaria.setText("Binária");
+
+        buttonGroupType.add(rbName);
+        rbName.setText("Name");
+        rbName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbNameActionPerformed(evt);
+            }
+        });
+
+        buttonGroupType.add(rbOrigin);
+        rbOrigin.setText("Origin");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -149,9 +171,16 @@ public class FormSistema extends javax.swing.JFrame {
                                 .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(56, 56, 56)
-                                .addComponent(rbLinear)
-                                .addGap(7, 7, 7)
-                                .addComponent(rbBinaria))
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(rbName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(rbLinear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addGap(7, 7, 7)
+                                        .addComponent(rbBinaria))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(rbOrigin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(66, 66, 66)
                                 .addComponent(btnBusca)))
@@ -173,6 +202,10 @@ public class FormSistema extends javax.swing.JFrame {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(rbLinear)
                             .addComponent(rbBinaria))
+                        .addGap(11, 11, 11)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(rbName)
+                            .addComponent(rbOrigin))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -210,7 +243,6 @@ private void carregaArquivo() {
                 Dados car = new Dados();
                 leitura = line.split(",");
                 car.setName(leitura[0]);
-               
 
                 // Verifique se as strings não estão vazias antes de convertê-las em inteiros
                 if (!leitura[2].isEmpty()) {
@@ -224,14 +256,13 @@ private void carregaArquivo() {
                 }
 
                 car.setOrigin(leitura[8]);
-                
+
 //                System.out.println("Modelo: " + leitura[0]);
 //                System.out.println("cyl: " + leitura[2]);
 //                System.out.println("hp: " + leitura[4]);
 //                System.out.println("year: " + leitura[7]);
 //                System.out.println("origin: " + leitura[8]);
 //                System.out.println("-------------------");
-
                 carList.add(car);
             }// fim percurso no arquivo
         } catch (IOException e) {
@@ -286,20 +317,29 @@ private void carregaArquivo() {
         mostra();
 
     }//GEN-LAST:event_btnOrdNomeActionPerformed
-  
-    private void btnBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaActionPerformed
-        Dados search = new Dados();
-        search.setName(txtBusca.getText());
-        int resp = -1, comparisons = 0;
 
-        if (rbLinear.isSelected()) {
-            resp = carList.indexOf(search);
-        } else if (rbBinaria.isSelected()) {
-            resp = Collections.binarySearch(carList, search);
+    private void btnBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaActionPerformed
+        String search;
+        search = txtBusca.getText();
+        int resp = -1;
+        ArrayList<Dados> carListCopy = new ArrayList<>(carList);
+
+        if (rbLinear.isSelected() && rbName.isSelected()) {
+            resp = Search.linearSearchCarName(carList, search);
+        } else if (rbLinear.isSelected() && rbOrigin.isSelected()) {
+            resp = Search.linearSearchCarOrigin(carList, search);
+        } else if (rbBinaria.isSelected() && rbName.isSelected()) {
+            Collections.sort(carListCopy, compareName);
+            resp = Search.binarySearchCarName(carListCopy, search);
+        } else if (rbBinaria.isSelected() && rbOrigin.isSelected()) {
+            Collections.sort(carListCopy, compareOrigin);
+            resp = Search.binarySearchCarOrigin(carListCopy, search);
         }
 
-        if (resp > -1) {
-            JOptionPane.showMessageDialog(null, "Encontrado na posicao [" + resp + "] !");
+        if (resp > -1 && !(rbBinaria.isSelected() && rbOrigin.isSelected())) {
+            JOptionPane.showMessageDialog(null, "Encontrado com [" + resp + "] comparações!");
+        } else if (resp > -1) {
+            JOptionPane.showMessageDialog(null, "Encontrado o primeiro registro com [" + resp + "] comparações!");
         } else {
             JOptionPane.showMessageDialog(null, "Nao Encontrado!");
         }
@@ -309,6 +349,10 @@ private void carregaArquivo() {
     private void cbOrdenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbOrdenaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbOrdenaActionPerformed
+
+    private void rbNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbNameActionPerformed
 
     /**
      * @param args the command line arguments
@@ -349,7 +393,8 @@ private void carregaArquivo() {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBusca;
     private javax.swing.JButton btnOrdNome;
-    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroupSearch;
+    private javax.swing.ButtonGroup buttonGroupType;
     private javax.swing.JComboBox<String> cbOrdena;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -359,6 +404,8 @@ private void carregaArquivo() {
     private javax.swing.JLabel lblProx;
     private javax.swing.JRadioButton rbBinaria;
     private javax.swing.JRadioButton rbLinear;
+    private javax.swing.JRadioButton rbName;
+    private javax.swing.JRadioButton rbOrigin;
     private javax.swing.JTable tabelaDados;
     private javax.swing.JTextField txtBusca;
     // End of variables declaration//GEN-END:variables
