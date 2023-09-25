@@ -28,3 +28,27 @@ p {
 li.highlight {
     text-decoration: underline;
 }
+
+/* Descendentes  */ 
+li em {
+    color: orange;
+}
+
+/* Pai */
+li > spam {
+    color: red;
+}
+
+/* Todo paragrafo que antes dele tem um paragrafo */ 
+p + p {
+    background: purple;
+}
+
+a:hover {
+    text-decoration: none;
+    border: 1px solid black;
+}
+
+li + p > div spam {
+    
+}
