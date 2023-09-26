@@ -4,7 +4,6 @@
     <fullyQualifiedTypeName name="java.lang.Override"/>
     <fullyQualifiedTypeName name="Student"/>
     <fullyQualifiedTypeName name="java.util.concurrent.ExecutionException"/>
-    <fullyQualifiedTypeName name="model.Product"/>
     <fullyQualifiedTypeName name="java.lang.Math"/>
     <fullyQualifiedTypeName name="model.Square"/>
     <fullyQualifiedTypeName name="model.Rect"/>
@@ -13,4 +12,7 @@
     <fullyQualifiedTypeName name="model.IPI"/>
     <fullyQualifiedTypeName name="model.ICMS"/>
     <fullyQualifiedTypeName name="java.lang.Exception"/>
+    <fullyQualifiedTypeName name="java.lang.StringIndexOutOfBoundsException"/>
+    <fullyQualifiedTypeName name="model.SaleItem"/>
+    <fullyQualifiedTypeName name="model.Product"/>
 </qualifiedTypeNameHistroy>
