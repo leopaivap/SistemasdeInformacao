@@ -1,0 +1,23 @@
+h1 {
+    background: black;
+    color: white;
+}
+
+/* RGB
+    Hexa do vermelho #F00 == #FF0000
+    pode ser resumida quando os três valores são iguais
+*/
+
+p { 
+    background: #F00;
+}
+
+span {
+    background: rgb(0, 0, 255);
+}
+
+div {
+    background: rgba(0, 255, 0, .5);
+    height: 200px;
+    width: 200px;
+}
