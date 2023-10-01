@@ -11,7 +11,6 @@ public class SaleItem {
 			this.amount = amount;
 			totalPriceItem = prod.getCost() * amount;
 		}
-
 	}
 
 	public Product getSaleProduct() {

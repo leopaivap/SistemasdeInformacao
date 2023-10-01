@@ -18,7 +18,7 @@ public class Sale {
 		totalPriceCart += item.getTotalPriceItem();
 	}
 
-	public void printSale(Sale sale) {
+	public void printSale() {
 		for (SaleItem saleItem : cart) {
 			System.out.println("Produto: " + saleItem.getSaleProduct().getName());
 			System.out.println("Quantidade: " + saleItem.getAmount());
@@ -26,6 +26,6 @@ public class Sale {
 			System.out.println("Valor Total: R$" + saleItem.getTotalPriceItem());
 			System.out.println("----------------------------------");
 		}
-		System.out.println("Valor Total Carrinho: R$" + sale.totalPriceCart);
+		System.out.println("Valor Total Carrinho: R$" + this.totalPriceCart);
 	}
 }
