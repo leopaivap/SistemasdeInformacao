@@ -1,0 +1,56 @@
+* {
+    padding: 5px;
+    margin: 5px;
+}
+
+div {
+    /*background: #ccc;*/
+    padding: 10px;
+    margin: 5px;
+}
+
+p {
+    /*background: #84e;*/
+    padding: 5px;
+    margin: 2px 0px 2px 0px;
+    border-top: 1px dashed black;
+    border-bottom: 2px solid #84f;
+    border-right: 1px dashed black;
+    border-left: 1px dashed black;
+    border-radius: 5px;
+}
+
+h1 {
+    padding: 15px;
+    text-align: center;
+    
+}
+
+.teste{
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: darkslategrey;
+    color: white;
+    width: 10vw;
+    text-align: center;
+    padding: 5px;
+    margin: 5px;
+}
+
+#sec {
+    display: flex; 
+    justify-content: center;
+    border: 1px solid black;
+}
+
+.btnSaiba {
+    border-radius: 5px;
+    border: 0.2px solid black;
+    background-color: lightslategrey;
+    color: white;
+}
+
+.btnSaiba:hover {
+    border: 0.4px solid white;
+    background-color: darkgray;
+}
