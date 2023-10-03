@@ -11,13 +11,13 @@ public class Sale {
 	private double totalPriceCart;
 	private Date date;
 
-	public Sale() {
+	public Sale() throws Exception {
 		this.date = Calendar.getInstance().getTime();
 		this.cart = new ArrayList<>();
 	}
 
-	public void addCart(Product prod, int amount) throws Exception {
-		SaleItem item = new SaleItem(prod, amount);
+	public void addCart(String productId, int amount) throws Exception {
+		SaleItem item = new SaleItem(productId, amount);
 		cart.add(item);
 		totalPriceCart += item.getTotalPriceItem();
 	}
@@ -33,7 +33,7 @@ public class Sale {
 			for (SaleItem saleItem : cart) {
 				String productName = saleItem.getSaleProduct().getName();
 				if (productName.length() > 6)
-					productName = saleItem.getSaleProduct().getName().substring(0, 6u);
+					productName = saleItem.getSaleProduct().getName().substring(0, 6);
 
 				System.out.println("\t" + productName + "\t\t" + saleItem.getAmount() + "\t"
 						+ saleItem.getSaleProduct().getCost() + "\t" + saleItem.getTotalPriceItem());
