@@ -1,0 +1,46 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    text-align: center;
+}
+
+.imgLogo {
+    width: 175px;
+    height: 175px;
+    border-radius: 50%;
+}
+
+.item {
+    background-color: #111;
+    color: #b2b2b2;
+    border-radius: 4px;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    width: 550px;
+    margin: auto;
+    margin-top: 15px;
+}
+
+strong {
+    color: #febe01;
+}
+
+.btnProposta {
+    border-radius: 4px;
+    background-color: #febe01;
+    color: #332200;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.imgs {
+    width: 300px;
+    height: 175px;
+    border: solid 2px white;
+    border-radius: 4px;
+    margin-top: 15px;
+    margin-left: 5px;
+}
