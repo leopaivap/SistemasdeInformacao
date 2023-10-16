@@ -10,6 +10,7 @@ public class Sale {
 	private List<SaleItem> cart = new ArrayList<>();
 	private double totalPriceCart;
 	private Date date;
+	//private Payment paymentMethod;
 
 	public Sale() throws Exception {
 		this.date = Calendar.getInstance().getTime();
@@ -42,4 +43,13 @@ public class Sale {
 			System.out.println("Total Carrinho: R$" + this.totalPriceCart);
 		}
 	}
+
+	protected double getTotalPriceCart() {
+		return totalPriceCart;
+	}
+
+	protected void setTotalPriceCart(double totalPriceCart) {
+		this.totalPriceCart = totalPriceCart;
+	}
+
 }
