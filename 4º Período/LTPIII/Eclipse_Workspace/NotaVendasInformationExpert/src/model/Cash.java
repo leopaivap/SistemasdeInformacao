@@ -3,9 +3,7 @@ package model;
 public class Cash extends Payment {
 	private double discount;
 
-	public Cash(double fees, double discount) {
-		this.setFees(fees);
-		this.setDescription("Dinheiro/PIX");
+	public Cash(double discount) {
 		this.setDiscount(discount);
 	}
 
@@ -19,9 +17,14 @@ public class Cash extends Payment {
 	}
 
 	@Override
-	protected double setFinalSalePrice(double totalSalePrice) {
-		totalSalePrice = ((totalSalePrice - (totalSalePrice * this.discount)) + (totalSalePrice * this.getFees()));
-		return totalSalePrice;
+	protected String description() {
+		return "Dinheiro/Pix";
+	}
+
+	@Override
+	protected Double value(double saleValue) {
+		double value = saleValue - (this.discount * saleValue);
+		return value;
 	}
 
 }

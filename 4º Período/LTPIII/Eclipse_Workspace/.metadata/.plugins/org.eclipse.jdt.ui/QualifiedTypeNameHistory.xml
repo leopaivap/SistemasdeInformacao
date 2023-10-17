@@ -18,6 +18,6 @@
     <fullyQualifiedTypeName name="java.util.Date"/>
     <fullyQualifiedTypeName name="java.util.Calendar"/>
     <fullyQualifiedTypeName name="java.lang.String"/>
-    <fullyQualifiedTypeName name="model.DataProducts"/>
     <fullyQualifiedTypeName name="model.Payment"/>
+    <fullyQualifiedTypeName name="model.DataProducts"/>
 </qualifiedTypeNameHistroy>

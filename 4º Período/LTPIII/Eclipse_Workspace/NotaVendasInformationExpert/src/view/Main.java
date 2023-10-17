@@ -12,6 +12,11 @@ public class Main {
 		venda.addCart("feijao", 1);
 		venda.addCart("pao", 2);
 
+		// cc - cartao credito
+		// cd - cartao debito
+		// c - dinheiro / pix
+		venda.addPayment("cc");
+
 		venda.printSale();
 
 	}

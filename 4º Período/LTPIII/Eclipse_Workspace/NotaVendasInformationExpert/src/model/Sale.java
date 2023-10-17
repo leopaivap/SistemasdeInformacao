@@ -10,7 +10,7 @@ public class Sale {
 	private List<SaleItem> cart = new ArrayList<>();
 	private double totalPriceCart;
 	private Date date;
-	//private Payment paymentMethod;
+	private Payment paymentMethod;
 
 	public Sale() throws Exception {
 		this.date = Calendar.getInstance().getTime();
@@ -41,15 +41,25 @@ public class Sale {
 				System.out.println("--------------------------------------------------------");
 			}
 			System.out.println("Total Carrinho: R$" + this.totalPriceCart);
+			System.out.println("Forma de Pagamento: " + this.getPayment());
+			System.out.println("Valor a ser pago: R$" + this.paymentValue());
 		}
 	}
 
-	protected double getTotalPriceCart() {
+	public double getTotalPriceCart() {
 		return totalPriceCart;
 	}
 
-	protected void setTotalPriceCart(double totalPriceCart) {
-		this.totalPriceCart = totalPriceCart;
+	public void addPayment(String method) {
+		this.paymentMethod = DataProducts.getPayment(method);
+	}
+
+	public String getPayment() {
+		return this.paymentMethod.description();
+	}
+
+	public double paymentValue() {
+		return this.paymentMethod.value(getTotalPriceCart());
 	}
 
 }
