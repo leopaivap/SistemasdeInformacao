@@ -1,0 +1,18 @@
+h1 {
+    text-align: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    background: rgb(77, 19, 77);
+    padding: 5px;
+    gap: 2px;
+}
+
+.item-grid {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.4);
+    /*border: .5px solid lightgray;*/
+    text-align: center;
+}
