@@ -19,5 +19,7 @@
     <fullyQualifiedTypeName name="java.util.Calendar"/>
     <fullyQualifiedTypeName name="java.lang.String"/>
     <fullyQualifiedTypeName name="model.Payment"/>
+    <fullyQualifiedTypeName name="model.SaleManager"/>
+    <fullyQualifiedTypeName name="java.util.Collection"/>
     <fullyQualifiedTypeName name="model.DataProducts"/>
 </qualifiedTypeNameHistroy>
