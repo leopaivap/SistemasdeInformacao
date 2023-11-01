@@ -116,7 +116,7 @@ public void remove(T dadoRemover) {
     raiz = remove(this.raiz, dadoRemover);
 }
 
-public Node<T> remove(Node<T> raiz, T dadoRemover) {
+private Node<T> remove(Node<T> raiz, T dadoRemover) {
     	if(raiz==null){
                 System.out.println("Não encontrado - :(");
 		return null;

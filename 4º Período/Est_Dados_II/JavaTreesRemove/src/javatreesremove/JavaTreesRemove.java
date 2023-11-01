@@ -1,4 +1,3 @@
-
 package javatreesremove;
 
 public class JavaTreesRemove {
@@ -15,7 +14,7 @@ public class JavaTreesRemove {
         tree.preOrder();
         System.out.println("Em Ordem:");
         tree.inOrder();*/
-       Formulario form =  new Formulario();
-       form.setVisible(true);
+        Formulario form = new Formulario();
+        form.setVisible(true);
     }
 }
