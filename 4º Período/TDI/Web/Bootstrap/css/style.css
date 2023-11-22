@@ -1,0 +1,10 @@
+[class~="row"] {
+    font-size: 24px;
+    height: 100vh;
+}
+
+form {
+    background: lightgray;
+    padding: 20px;
+    border-radius: 10px;
+}
