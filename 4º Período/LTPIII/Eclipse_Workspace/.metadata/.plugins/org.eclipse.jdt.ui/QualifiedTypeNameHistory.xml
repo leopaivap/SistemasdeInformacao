@@ -22,4 +22,6 @@
     <fullyQualifiedTypeName name="model.SaleManager"/>
     <fullyQualifiedTypeName name="java.util.Collection"/>
     <fullyQualifiedTypeName name="model.DataProducts"/>
+    <fullyQualifiedTypeName name="model.EmployeeFactory"/>
+    <fullyQualifiedTypeName name="model.EmployeeFactory.EmployeeType"/>
 </qualifiedTypeNameHistroy>
