@@ -1,0 +1,12 @@
+.row {
+    background: darkslategrey;
+    padding: 5px;
+    margin: 10px;
+    color: white;
+}
+
+.col {
+    background: darkblue;
+    padding: 10px;
+    margin: 5px;
+}

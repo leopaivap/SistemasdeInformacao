@@ -1,37 +1,41 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style2.css">
     <title>Bootstrap</title>
 </head>
 
 <body>
-    <main class="container">
-        <div class="row justify-content-center">
-            <form class="col-4 align-self-center">
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" id="email" class="form-control">
-                    <div class="form-text">Nunca compartilharemos seu email</div>
-                </div>
-
-                <div class="mb-3">
-                    <label for="senha" class="form-label">Senha</label>
-                    <input type="password" id="senha" class="form-control">
-                </div>
-
-                <div class="mb-3 form-check">
-                    <input id="termos" type="checkbox" class="form-check-input">
-                    <label for="termos" class="form-check-label">Aceito os termos e condições</label>
-                </div>
-
-                <button type="submit" class="btn btn-primary">Cadastrar</button>
-            </form>
+    <main class="container-fluid">
+        <div class="row">
+            <div class="col">Coluna 1 de 3</div>
+            <div class="col">Coluna 2 de 3</div>
+            <div class="col">Coluna 3 de 3</div>
         </div>
+
+        <div class="row">
+            <div class="col-8">Coluna 8</div>
+            <div class="col-4">Coluna 4</div>
+        </div>
+
+        <div class="row">
+            <div class="col-4">.col-4</div>
+            <div class="col-4">.col-4</div>
+            <div class="col-4">.col-4</div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4">.col-sm-4</div>
+            <div class="col-sm-4">.col-sm-4</div>
+            <div class="col-sm-4">.col-sm-4</div>
+        </div>
+
+        <div class="row"></div>
     </main>
 
     <script src="js/bootstrap.min.js"></script>
