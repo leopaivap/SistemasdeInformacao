@@ -12,16 +12,20 @@
     <fullyQualifiedTypeName name="model.IPI"/>
     <fullyQualifiedTypeName name="model.ICMS"/>
     <fullyQualifiedTypeName name="java.lang.Exception"/>
-    <fullyQualifiedTypeName name="java.lang.StringIndexOutOfBoundsException"/>
     <fullyQualifiedTypeName name="model.SaleItem"/>
     <fullyQualifiedTypeName name="model.Product"/>
     <fullyQualifiedTypeName name="java.util.Date"/>
     <fullyQualifiedTypeName name="java.util.Calendar"/>
-    <fullyQualifiedTypeName name="java.lang.String"/>
     <fullyQualifiedTypeName name="model.Payment"/>
     <fullyQualifiedTypeName name="model.SaleManager"/>
     <fullyQualifiedTypeName name="java.util.Collection"/>
     <fullyQualifiedTypeName name="model.DataProducts"/>
-    <fullyQualifiedTypeName name="model.EmployeeFactory"/>
     <fullyQualifiedTypeName name="model.EmployeeFactory.EmployeeType"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="java.time.temporal.UnsupportedTemporalTypeException"/>
+    <fullyQualifiedTypeName name="model.Employee"/>
+    <fullyQualifiedTypeName name="model.EmployeeFactory"/>
+    <fullyQualifiedTypeName name="model.br.BREmployeeFactory"/>
+    <fullyQualifiedTypeName name="model.EmployeeType"/>
+    <fullyQualifiedTypeName name="java.lang.StringIndexOutOfBoundsException"/>
 </qualifiedTypeNameHistroy>

@@ -2,11 +2,8 @@ package model;
 
 public class EmployeeFactory {
 
-	public enum EmployeeType {
-		ANALYST, ARCHITECT, MANAGER, TECLEADER
-	}
-
-	public static Employee createEmployee(EmployeeType id, String name, double salary, double percent, int subs, int projects ) {
+	public static Employee createEmployee(EmployeeType id, String name, double salary, double percent, int subs,
+			int projects) {
 
 		switch (id) {
 		case ANALYST: {
