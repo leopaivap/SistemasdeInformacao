@@ -67,11 +67,30 @@ public class Graph {
     public void explorarDFS(int verticeAtual) {
         visitados.add(verticeAtual);
         LinkedList<Aresta> adjacentes = meuGrafo.get(verticeAtual);
-        for(Aresta adj: adjacentes) {
-            if(!visitados.contains(adj.vertice))
+        for (Aresta adj : adjacentes) {
+            if (!visitados.contains(adj.vertice)) {
                 explorarDFS(adj.vertice);
+            }
         }
-               
+    }
+
+    public List buscaemLargura(int verticeInicial) {
+        Queue<Integer> fila = new LinkedList<>();
+        visitados = new ArrayList<>();
+        fila.add(verticeInicial);
+
+        while (!fila.isEmpty()) {
+            int verticeAtual = fila.poll(); //dequeue
+            visitados.add(verticeAtual);
+            List<Aresta> vizinhos = meuGrafo.get(verticeAtual);
+
+            for (Aresta adjacente : vizinhos) {
+                if (!visitados.contains(adjacente.vertice) && !fila.contains(adjacente.vertice)) {
+                    fila.add(adjacente.vertice);
+                }
+            }
+        }
+        return visitados;
     }
 
     public void imprimirGrafo() {
@@ -87,7 +106,7 @@ public class Graph {
     }
 
     public void salvarGrafo() {
-        try (PrintWriter writer = new PrintWriter(new FileWriter("grafo3.txt"))) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter("grafo2.txt"))) {
             for (Map.Entry<Integer, LinkedList<Aresta>> entry : meuGrafo.entrySet()) {
                 int vertice = entry.getKey();
                 LinkedList<Aresta> vizinhos = entry.getValue();
@@ -102,7 +121,7 @@ public class Graph {
 
     // Método para carregar os dados do grafo de um arquivo texto
     public void carregarGrafo() {
-        try (Scanner scanner = new Scanner(new File("grafo3.txt"))) {
+        try (Scanner scanner = new Scanner(new File("grafo2.txt"))) {
             while (scanner.hasNext()) {
                 int origem = scanner.nextInt();
                 int destino = scanner.nextInt();

@@ -55,17 +55,25 @@ public class Grafos {
                     System.out.println("Destino:");
                     destino = scanner.nextInt();
 
-                    if (grafo.alcance(origem, destino)) 
+                    if (grafo.alcance(origem, destino)) {
                         System.out.println("Existe Caminho!");
-                    else 
+                    } else {
                         System.out.println("Nao Existe Caminho!");
+                    }
                     break;
 
                 case 5:
                     System.out.println("DFS");
-                    System.out.println("Origem");
+                    System.out.println("Origem: ");
                     origem = scanner.nextInt();
                     System.out.println(grafo.buscaProfundidade(origem));
+                    break;
+
+                case 6:
+                    System.out.println("BFS");
+                    System.out.println("Origem: ");
+                    origem = scanner.nextInt();
+                    System.out.println(grafo.buscaemLargura(origem));
                     break;
 
                 case 0:
