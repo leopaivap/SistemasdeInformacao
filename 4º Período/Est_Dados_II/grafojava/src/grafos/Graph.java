@@ -7,6 +7,13 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.*;
 
+class ComparadorDistancia implements Comparator<No> {
+
+    public int compare(No no1, No no2) {
+        return Integer.compare(no1.distancia, no2.distancia);
+    }
+}
+
 public class Graph {
 
     private Map<Integer, LinkedList<Aresta>> meuGrafo;
@@ -93,6 +100,43 @@ public class Graph {
         return visitados;
     }
 
+    public Map<Integer, Integer> dijkstra(int origem) {
+
+        Map<Integer, Integer> distancias = new HashMap<>();
+        Map<Integer, Integer> predecessores = new HashMap<>();
+        PriorityQueue<No> filaPrioridade = new PriorityQueue<>(new ComparadorDistancia());
+        visitados = new ArrayList();
+
+        for (int vertice : meuGrafo.keySet()) {
+            distancias.put(vertice, Integer.MAX_VALUE);
+            predecessores.put(vertice, null);
+        }
+
+        distancias.put(origem, 0);
+        filaPrioridade.add(new No(origem, 0));
+
+        // processar o grafo
+        while (!filaPrioridade.isEmpty()) {
+            int verticeAtual = filaPrioridade.poll().vertice;
+            if (!visitados.contains(verticeAtual)) {
+                visitados.add(verticeAtual);
+
+                for (Aresta aresta : meuGrafo.get(verticeAtual)) {
+                    int vizinho = aresta.vertice;
+                    int pesoAresta = aresta.peso;
+                    int novaDistancia = distancias.get(verticeAtual) + pesoAresta;
+
+                    if (novaDistancia < distancias.get(vizinho)) {
+                        distancias.put(vizinho, novaDistancia);
+                        predecessores.put(vizinho, verticeAtual);
+                        filaPrioridade.add(new No(vizinho, novaDistancia));
+                    }
+                }
+            }
+        }
+        return distancias;
+    }
+
     public void imprimirGrafo() {
         for (Map.Entry<Integer, LinkedList<Aresta>> entry : meuGrafo.entrySet()) {
             int vertice = entry.getKey();
@@ -106,7 +150,7 @@ public class Graph {
     }
 
     public void salvarGrafo() {
-        try (PrintWriter writer = new PrintWriter(new FileWriter("grafo2.txt"))) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter("grafo4.txt"))) {
             for (Map.Entry<Integer, LinkedList<Aresta>> entry : meuGrafo.entrySet()) {
                 int vertice = entry.getKey();
                 LinkedList<Aresta> vizinhos = entry.getValue();
@@ -121,7 +165,7 @@ public class Graph {
 
     // Método para carregar os dados do grafo de um arquivo texto
     public void carregarGrafo() {
-        try (Scanner scanner = new Scanner(new File("grafo2.txt"))) {
+        try (Scanner scanner = new Scanner(new File("grafo4.txt"))) {
             while (scanner.hasNext()) {
                 int origem = scanner.nextInt();
                 int destino = scanner.nextInt();
