@@ -25,7 +25,13 @@
     <fullyQualifiedTypeName name="java.time.temporal.UnsupportedTemporalTypeException"/>
     <fullyQualifiedTypeName name="model.Employee"/>
     <fullyQualifiedTypeName name="model.EmployeeFactory"/>
-    <fullyQualifiedTypeName name="model.br.BREmployeeFactory"/>
     <fullyQualifiedTypeName name="model.EmployeeType"/>
     <fullyQualifiedTypeName name="java.lang.StringIndexOutOfBoundsException"/>
+    <fullyQualifiedTypeName name="model.br.BREmployeeFactory"/>
+    <fullyQualifiedTypeName name="model.us.USEmployeeFactory"/>
+    <fullyQualifiedTypeName name="model.CountryEmployeeFactory"/>
+    <fullyQualifiedTypeName name="model.Country"/>
+    <fullyQualifiedTypeName name="model.User"/>
+    <fullyQualifiedTypeName name="model.dao.MySQLUserDAO"/>
+    <fullyQualifiedTypeName name="model.dao.UserDAO"/>
 </qualifiedTypeNameHistroy>
