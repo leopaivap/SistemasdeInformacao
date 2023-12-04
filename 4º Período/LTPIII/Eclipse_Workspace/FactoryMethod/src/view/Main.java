@@ -1,5 +1,7 @@
 package view;
 
+import model.Country;
+import model.CountryEmployeeFactory;
 import model.Employee;
 import model.EmployeeFactory;
 import model.EmployeeType;
@@ -9,7 +11,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		EmployeeFactory factory = new USEmployeeFactory();
+		EmployeeFactory factory = CountryEmployeeFactory.createObject(Country.BR);
 
 		Employee employee = factory.createEmployee(EmployeeType.MANAGER);
 
