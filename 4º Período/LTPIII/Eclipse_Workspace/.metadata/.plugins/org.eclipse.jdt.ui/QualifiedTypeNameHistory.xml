@@ -34,4 +34,6 @@
     <fullyQualifiedTypeName name="model.User"/>
     <fullyQualifiedTypeName name="model.dao.MySQLUserDAO"/>
     <fullyQualifiedTypeName name="model.dao.UserDAO"/>
+    <fullyQualifiedTypeName name="jakarta.servlet.http.HttpServlet"/>
+    <fullyQualifiedTypeName name="jakarta.servlet.annotation.WebServlet"/>
 </qualifiedTypeNameHistroy>
