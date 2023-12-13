@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 INDEX VERSION 1.134+C:\Users\02210412650\GIT_SI\4º Período\LTPIII\Eclipse_Workspace\.metadata\.plugins\org.eclipse.jdt.core
 175912993.index
 3290573101.index
@@ -48,3 +49,9 @@ INDEX VERSION 1.134+C:\Users\02210412650\GIT_SI\4º Período\LTPIII\Eclipse_Worksp
 4071914415.index
 182104399.index
 2964121438.index
+=======
+INDEX VERSION 1.134+C:\Users\leona\Documents\SistemasdeInformacaoGit\SistemasdeInformacao\4º Período\LTPIII\Eclipse_Workspace\.metadata\.plugins\org.eclipse.jdt.core
+1865797976.index
+3442730808.index
+470558490.index
+>>>>>>> 721056ff167b48acceb2b9744649524ae64eed51
