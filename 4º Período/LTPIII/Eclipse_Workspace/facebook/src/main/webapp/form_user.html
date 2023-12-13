@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-icons.css">
+    <title>Cadastro Usuário</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-2"></div>
+
+            <form method="GET" action="/facebook/save" class="col-8">
+                <h1 class="mb-3">Cadastrar Usuário</h1>
+
+                <div class="form-group mb-3">
+                    <label for="user-name-id">Nome Usuário</label>
+                    <input type="text" class="form-control" id="user-name-id" name="user-name"
+                        placeholder="Nome do Usuário">
+                </div>
+
+                <div class="form-group mb-3">
+                    <span style="font-size: 16px;">Sexo</span><br>
+                    
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="user-gender" id="user-gender-id-f" value="F">
+                        <label class="form-check-label" for="user-gender-id-f">
+                            Feminino
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="user-gender" id="user-gender-id-m"
+                            value="M">
+                        <label class="form-check-label" for="user-gender-id-m">
+                            Masculino
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="email-id">Email</label>
+                    <input type="email" class="form-control" id="email-id" name="email" placeholder="E-mail do Usuário">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+
+            </form>
+
+            <div class="col-2"></div>
+        </div>
+    </div>
+
+
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

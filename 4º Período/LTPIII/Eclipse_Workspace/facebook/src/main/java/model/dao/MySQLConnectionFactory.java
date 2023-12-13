@@ -16,7 +16,7 @@ public class MySQLConnectionFactory {
 
 	// Credenciais
 	static final String USER = "root";
-	static final String PASSWORD = "root1234";
+	static final String PASSWORD = "";
 	
 	public static Connection getConnection() throws ModelException {
 		// API JDBC < 3 e Java < 5
