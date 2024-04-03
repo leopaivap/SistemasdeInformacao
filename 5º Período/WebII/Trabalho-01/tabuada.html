@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/nav-menu.css">
+    <link rel="stylesheet" type="text/css" href="css/tabuada.css">
+    <title>Tabuada</title>
+</head>
+
+<body>
+    <header id="nav-container"></header>
+    <main>
+        <section id="tabuada">
+            <header>
+                <h1>Tabuada</h1>
+            </header>
+            <div id="conteudo">
+                <div id="entrada">
+                    <p>Número</p>
+                    <input type="number" name="txt-numero" id="txt-numero" placeholder=" Digite aqui">
+
+                    <p>
+                        <input id="btn" type="button" value="Criar Tabuada" onclick="tabuada()">
+                    </p>
+                </div>
+                <div id="resultado">
+                    <h3>PREENCHA OS DADOS AO LADO PARA VER O RESULTADO</h3>
+                    <div id="resultado-texto">
+                        <h4 id="resultado-titulo">Aguardando dados ...</h4>
+                        <select name="tabuada" id="select-tabuada" size="11"></select>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer id="footer-container">
+    </footer>
+    <script src="script/loadNavBar.js"></script>
+    <script src="script/loadFooter.js"></script>
+    <script src="script/tabuada.js"></script>
+</body>
+
+</html>

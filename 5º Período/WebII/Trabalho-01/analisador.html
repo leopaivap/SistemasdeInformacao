@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/nav-menu.css">
+    <link rel="stylesheet" type="text/css" href="css/analisador.css">
+    <title>Analisador de Números</title>
+</head>
+
+<body>
+    <header id="nav-container"></header>
+    <main>
+        <section id="analisador">
+            <header>
+                <h1>Analisador de Números</h1>
+            </header>
+            <div id="conteudo">
+                <div id="entrada">
+                    <p>Número (entre 1 e 100)</p>
+                    <input type="number" name="txt-numero" id="txt-numero" placeholder=" Digite aqui">
+                    <input id="btn-adicionar" type="button" value="Adicionar" onclick="adicionar()">
+                    <input id="btn-finalizar" type="button" value="Finalizar" onclick="finalizar()">
+
+
+                </div>
+                <div id="resultado">
+                    <h3>PREENCHA OS DADOS AO LADO PARA VER O RESULTADO</h3>
+                    <select name="select-numeros" id="select-numeros" size="6"></select>
+                    <p id="resultado-texto">
+
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer id="footer-container">
+    </footer>
+    <script src="script/loadNavBar.js"></script>
+    <script src="script/loadFooter.js"></script>
+    <script src="script/analisador.js"></script>
+</body>
+
+</html>

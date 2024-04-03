@@ -1,0 +1,46 @@
+.home {
+    text-align: center;
+    padding: 5% 0;
+}
+
+.home-header h1 {
+    margin: 5px 0;
+}
+
+.cards-section {
+    margin-top: 5%;
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+.pages-card {
+    background-color: #777777;
+    box-shadow: 10px 10px 5px #e9e5e5;
+    height: 150px;
+    width: 200px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pages-card:hover {
+    background-color: #444;
+    box-shadow: 5px 5px 30px #1a1818;
+    transition: .2s ease-in-out;
+}
+
+.pages-card:hover a {
+    font-size: 21px;
+    transition: .1s ease-in-out;
+    border-bottom: 1px solid;
+    color: orange;
+}
+
+.pages-card a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}

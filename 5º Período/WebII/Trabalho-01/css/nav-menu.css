@@ -1,0 +1,15 @@
+.nav-menu ul {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+}
+
+.nav-menu ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-menu ul li a:hover {
+    color: orange;
+    transition: .2s ease-in-out;
+}
