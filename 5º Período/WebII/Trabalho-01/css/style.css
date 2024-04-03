@@ -1,0 +1,15 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    background: linear-gradient(to bottom, lightslategrey, darkgrey);
+    height: 100vh;
+}
+
+header h1 {
+    font-size: 40px;
+    color: white;
+}
+
+footer {
+    font-weight: bold;
+}
