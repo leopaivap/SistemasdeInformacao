@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Meu App de Login</string>
+
+    <!--Chaves da tela de login-->
+    <string name="login_user_login">Usuário</string>
+    <string name="login_user_login_placeholder">Nome de Usuário</string>
+
+    <string name="login_user_ps">Senha</string>
+    <string name="login_user_ps_placeholder">Digite sua Senha</string>
+
+    <string name="login_button_login">LOGAR</string>
+    <string name="login_button_register">CADASTRAR</string>
+
+    <string name="login_button_forgot_pw">ESQUECI A SENHA</string>
+    <string name="login_sucesfull">Login efetuado com sucesso</string>
+
+    <string name="login_forgot_pw_message">Implementar Funcionalidade</string>
+    <string name="login_user_name_empty">Nome de Usuário não pode ser vazio</string>
+    <string name="login_user_pw_empty">Senha não pode ser vazia</string>
+    <string name="login_user_wrong">Usuário ou Senha incorretos!</string>
+</resources>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textViewUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/left_default_margin"
+        android:layout_marginTop="@dimen/top_default_margin"
+        android:text="@string/login_user_login"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextUser"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/left_default_margin"
+        android:layout_marginTop="@dimen/top_default_margin"
+        android:layout_marginEnd="@dimen/right_default_margin"
+        android:hint="@string/login_user_login_placeholder"
+        android:inputType="text"
+        android:minHeight="@dimen/edit_text_min_height"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewUser" />
+
+    <TextView
+        android:id="@+id/textViewPW"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/left_default_margin"
+        android:layout_marginTop="@dimen/top_default_margin"
+        android:text="@string/login_user_ps"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextUser" />
+
+    <EditText
+        android:id="@+id/editTextNumberPassword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/left_default_margin"
+        android:layout_marginTop="@dimen/top_default_margin"
+        android:layout_marginEnd="@dimen/right_default_margin"
+        android:hint="@string/login_user_ps_placeholder"
+        android:inputType="number"
+        android:minHeight="@dimen/edit_text_min_height"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPW" />
+
+    <Button
+        android:id="@+id/buttonLogin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/left_default_margin"
+        android:layout_marginTop="@dimen/top_default_margin"
+        android:layout_marginEnd="@dimen/right_default_margin"
+        android:text="@string/login_button_login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumberPassword" />
+
+    <Button
+        android:id="@+id/buttonRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="@dimen/top_default_margin"
+        android:layout_marginEnd="@dimen/right_default_margin"
+
+        android:backgroundTint="@color/white"
+        android:text="@string/login_button_register"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonLogin" />
+
+    <Button
+        android:id="@+id/buttonForgotPW"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="@dimen/top_default_margin"
+        android:layout_marginEnd="@dimen/right_default_margin"
+
+        android:backgroundTint="@color/white"
+        android:onClick="forgotPW"
+        android:text="@string/login_button_forgot_pw"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/buttonRegister"
+        app:layout_constraintTop_toBottomOf="@+id/buttonLogin" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
