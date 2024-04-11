@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./style.css" />
+  <title>Controle Financeiro</title>
+</head>
+
+<body>
+  <h1 class="title">Controle Financeiro</h1>
+
+  <div class="container">
+    <div class="item">
+      <h4>Saldo</h4>
+
+      <h1 id="balanco" class="balanco">R$0.00</h1>
+
+      <div class="inc-exp-container">
+        <div>
+          <h3 class="montante">Receitas</h3>
+          <p id="din-positivo" class="din positivo">+ R$0.00</p>
+        </div>
+
+        <div>
+          <h3 class="montante">Despesas</h3>
+          <p id="din-negativo" class="din negativo">- R$0.00</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <h4>Adicionar transação</h4>
+
+      <form id="form">
+        <div class="form-control">
+          <label for="descricao">
+            <h3>Descrição</h3>
+          </label>
+          <input autofocus type="text" id="descricao" placeholder="Descrição da transação" />
+        </div>
+
+        <div class="form-control">
+          <label for="montante">
+            <h3>Valor R$</h3>
+          </label>
+          <input type="number" id="montante" placeholder="Valor da transação em R$" />
+          <small>(-) negativo para despesas</small>
+        </div>
+
+        <button class="btn">Adicionar</button>
+      </form>
+    </div>
+
+    <div class="item">
+      <h4>Transações</h4>
+
+      <ul id="transacoes" class="transacoes">
+        <!-- <li class="negativo">
+          Salário <span>R$5000</span><button class="delete-btn">X</button>
+        </li> -->
+      </ul>
+    </div>
+  </div>
+
+  <script src="controle.js"></script>
+</body>
+
+</html>
