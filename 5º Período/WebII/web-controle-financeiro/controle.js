@@ -67,7 +67,7 @@ function somaReceitaDespesa(transacao) {
 
 function addTransacaoDOM(transacao) {
     const cssClass = transacao.value > 0 ? 'positivo' : 'negativo';
-    const currency = transacao.valur > 0 ? '$R$' : '-R$';
+    const currency = transacao.valur > 0 ? 'R$' : '-R$';
     const liElementStr = `${transacao.desc} <span>${currency}${Math.abs(transacao.value)}</span><button class="delete-btn">X</button>`;
 
     const liElement = document.createElement('li');
