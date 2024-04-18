@@ -1,3 +1,5 @@
+const chave_transacoes_ls = "transacoes";
+
 const form = document.getElementById('form');
 const descInput = document.getElementById('descricao');
 const valorInput = document.querySelector('#montante');
@@ -5,6 +7,12 @@ const balancoH1 = document.getElementById('balanco');
 const receita = document.getElementById('din-positivo');
 const despesa = document.getElementById('din-negativo');
 const transacaoUL = document.getElementById('transacoes');
+
+let transacoesSalvas = JSON.parse(localStorage.getItem(chave_transacoes_ls));
+if (transacoesSalvas == null) {
+    transacoesSalvas = [];
+}
+
 
 form.addEventListener("submit", event => {
     event.preventDefault(); // Não submete formulário
@@ -33,6 +41,8 @@ form.addEventListener("submit", event => {
     somaAoSaldo(transacao);
     somaReceitaDespesa(transacao);
     addTransacaoDOM(transacao);
+    transacoesSalvas.push(transacao);
+    localStorage.setItem(chave_transacoes_ls, JSON.stringify(transacoesSalvas));
 
     descInput.value = '';
     valorInput.value = '';
@@ -67,11 +77,37 @@ function somaReceitaDespesa(transacao) {
 
 function addTransacaoDOM(transacao) {
     const cssClass = transacao.value > 0 ? 'positivo' : 'negativo';
-    const currency = transacao.valur > 0 ? 'R$' : '-R$';
-    const liElementStr = `${transacao.desc} <span>${currency}${Math.abs(transacao.value)}</span><button class="delete-btn">X</button>`;
+    const currency = transacao.value > 0 ? 'R$' : '-R$';
+    const liElementStr = `${transacao.desc} <span>${currency}${Math.abs(transacao.value)}</span><button class="delete-btn" onclick="deletaTransacao(${transacao.id})">X</button>`;
 
     const liElement = document.createElement('li');
     liElement.innerHTML = liElementStr;
     liElement.classList.add(cssClass);
     transacaoUL.appendChild(liElement);
 }
+
+function carregaDados() {
+    transacaoUL.innerHTML = '';
+    balancoH1.innerHTML = 'R$0.00';
+    receita.innerHTML = 'R$0.00';
+    despesa.innerHTML = '- R$0.00';
+
+    for (let i = 0; i < transacoesSalvas.length; i++) {
+        let transacao = transacoesSalvas[i];
+        somaAoSaldo(transacao);
+        somaReceitaDespesa(transacao);
+        addTransacaoDOM(transacao);
+    }
+}
+
+// Gambiarra em sistemas maiores
+// fazer de outro jeito
+function deletaTransacao(id) {
+    const transacaoIndex = transacoesSalvas.findIndex((transacao) => transacao.id == id);
+    transacoesSalvas.splice(transacaoIndex, 1);
+
+    localStorage.setItem(chave_transacoes_ls, JSON.stringify(transacoesSalvas));
+    carregaDados();
+}
+
+carregaDados();
