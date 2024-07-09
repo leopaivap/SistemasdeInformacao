@@ -1,0 +1,16 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Trabalho03Netflix" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+        <item name="background">@color/background_color</item>
+        <item name="android:windowBackground">@color/background_color</item>
+
+        <item name="android:seekBarStyle">@style/Widget.AppCompat.SeekBar.Discrete</item>
+        <item name="android:colorControlNormal">@color/vermelho</item>
+        <item name="android:colorControlActivated">@color/vermelho_claro</item>
+    </style>
+
+    <style name="Theme.Trabalho03Netflix" parent="Base.Theme.Trabalho03Netflix" />
+</resources>

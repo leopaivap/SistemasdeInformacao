@@ -1,0 +1,9 @@
+<!-- seekbar_thumb.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <solid android:color="@color/vermelho" />
+    <size
+        android:width="10dp"
+        android:height="10dp" />
+</shape>
+
