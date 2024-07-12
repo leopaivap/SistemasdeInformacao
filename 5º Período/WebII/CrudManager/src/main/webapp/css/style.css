@@ -1,0 +1,10 @@
+* 
+{
+	font-family: 'Fira Sans', 'Open Sans', sans-serif;
+}
+
+.alert {
+  position: absolute;
+  width: 98%;
+  z-index:999;
+}
