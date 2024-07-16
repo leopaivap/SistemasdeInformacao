@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Constraint Layout Atividade 1</string>
+    <string name="title">Utilizando Imagens no Android</string>
+    <string name="name">Emerson Carvalho</string>
+    <string name="date">17/04/2029</string>
+    <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consequat risus nec nisi varius lobortis. Vivamus sagittis lacinia bibendum. Curabitur non leo nec ligula pretium mollis. Ut nec risus id mauris tempus cursus. Fusce euismod velit ac sem ultrices, sed molestie enim aliquet. Pellentesque vel lacus purus. Suspendisse potenti. In blandit euismod nunc, sit amet fringilla enim viverra nec.</string>
+    <string name="btnPrev">ANTERIOR</string>
+    <string name="btnNext">PRÓXIMO</string>
+</resources>

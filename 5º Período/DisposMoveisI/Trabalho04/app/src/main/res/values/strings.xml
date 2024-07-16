@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Constraint Layout Atividade 3</string>
+    <string name="title">Melhor Texto</string>
+    <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consequat risus nec nisi varius lobortis. Vivamus sagittis lacinia bibendum. Curabitur non leo nec ligula pretium mollis. Ut nec risus id mauris tempus cursus. Fusce euismod velit ac sem ultrices, sed molestie enim aliquet. Pellentesque vel lacus purus. Suspendisse potenti. In blandit euismod nunc, sit amet fringilla enim viverra nec. Cras eu justo vel libero vehicula mattis ac id risus. Vestibulum id vestibulum diam. Proin ullamcorper justo libero, a venenatis est pharetra vel. Fusce hendrerit convallis ante, vitae varius velit posuere non. </string>
+    <string name="lorem2">Nullam nec mauris vel odio blandit laoreet. Nam pellentesque, lectus quis consequat feugiat, sapien ex vehicula purus, et lobortis risus felis a ante. Curabitur euismod metus et purus tristique, vel dignissim leo dictum.</string>
+    <string name="btnLeft">ESQUERDA</string>
+    <string name="btnRight">DIREITA</string>
+    <string name="btnDraw">EMPATE</string>
+</resources>
