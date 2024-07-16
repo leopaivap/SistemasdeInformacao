@@ -1,4 +1,4 @@
-package com.example.trabalho04;
+package br.edu.ifsuldeminas.mch.trabalho04;
 
 import org.junit.Test;
 
