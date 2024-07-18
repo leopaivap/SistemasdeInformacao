@@ -18,6 +18,7 @@
 				<li><a href="${pageContext.request.contextPath}/users"><span class="glyphicon glyphicon-user" /><strong>&nbspUsuários</strong></a></li>
 				<li><a href="${pageContext.request.contextPath}"><span class="glyphicon glyphicon-pencil" /><strong>&nbspPosts</strong></a></li>
 				<li><a href="${pageContext.request.contextPath}/companies"><span class="glyphicon glyphicon-pushpin" /><strong>&nbspEmpresas</strong></a></li>
+				<li><a href="${pageContext.request.contextPath}/sellers"><span class="glyphicon glyphicon-usd" /><strong>&nbspVendedores</strong></a></li>
 				<li class="dropdown">
 			        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><strong>Perfil</strong>
 			        <span class="caret"></span></a>

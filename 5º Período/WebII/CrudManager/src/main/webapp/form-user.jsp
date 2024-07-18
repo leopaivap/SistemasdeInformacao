@@ -4,6 +4,7 @@
 <html lang="pt-br">
 	<head>
 		<%@include file="base-head.jsp"%>
+		<title>CRUD Manager - Incluir Usuário</title>
 	</head>
 	<body>
 		<%@include file="nav-menu.jsp"%>

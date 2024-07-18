@@ -5,6 +5,7 @@
 <html>
 <head>
 	<%@include file="base-head.jsp"%>
+	<title>CRUD Manager - Incluir Empresa</title>
 </head>
 <body>
 	<%@include file="nav-menu.jsp"%>

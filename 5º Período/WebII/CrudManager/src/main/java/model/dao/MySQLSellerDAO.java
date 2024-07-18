@@ -25,23 +25,23 @@ public class MySQLSellerDAO implements SellerDAO {
 
 		return db.executeUpdate() > 0;
 	}
-	
+
 	@Override
 	public boolean update(Seller seller) throws ModelException {
 
-	    DBHandler db = new DBHandler();
+		DBHandler db = new DBHandler();
 
-	    String sqlUpdate = "UPDATE sellers SET name = ?, email = ?, fone = ?, company_id = ? where id = ?";
+		String sqlUpdate = "UPDATE sellers SET name = ?, email = ?, fone = ?, company_id = ? where id = ?";
 
-	    db.prepareStatement(sqlUpdate);
+		db.prepareStatement(sqlUpdate);
 
-	    db.setString(1, seller.getName());
-	    db.setString(2, seller.getEmail());
-	    db.setString(3, seller.getFone());
-	    db.setInt(4, seller.getCompany().getId());
-	    db.setInt(5, seller.getId());
+		db.setString(1, seller.getName());
+		db.setString(2, seller.getEmail());
+		db.setString(3, seller.getFone());
+		db.setInt(4, seller.getCompany().getId());
+		db.setInt(5, seller.getId());
 
-	    return db.executeUpdate() > 0;
+		return db.executeUpdate() > 0;
 	}
 
 	@Override
@@ -63,7 +63,8 @@ public class MySQLSellerDAO implements SellerDAO {
 
 		List<Seller> sellers = new ArrayList<Seller>();
 
-		String sqlQuery = "SELECT s.id AS ID, s.name AS Name, s.email as Email, s.fone as Fone, c.id as Company FROM sellers s INNER JOIN companies c on s.company_id = c.id;";
+		String sqlQuery = "SELECT s.id AS ID, s.name AS Name, s.email as Email, s.fone as Fone,"
+				+ "c.id as company_id FROM sellers s INNER JOIN companies c on s.company_id = c.id;";
 
 		db.createStatement();
 
@@ -106,7 +107,7 @@ public class MySQLSellerDAO implements SellerDAO {
 
 		CompanyDAO companyDAO = DAOFactory.createDAO(CompanyDAO.class);
 
-		Company company = companyDAO.findById(db.getInt("id"));
+		Company company = companyDAO.findById(db.getInt("company_id"));
 		s.setCompany(company);
 
 		return s;
