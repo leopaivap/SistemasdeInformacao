@@ -5,7 +5,6 @@ import java.util.List;
 
 import model.Company;
 import model.ModelException;
-import model.Post;
 import model.Seller;
 
 public class MySQLSellerDAO implements SellerDAO {
@@ -15,9 +14,10 @@ public class MySQLSellerDAO implements SellerDAO {
 
 		DBHandler db = new DBHandler();
 
-		String sqlInsert = "INSERT INTO sellers VALUES " + " (DEFAULT, ?, ?, ?, ?);";
+		String sqlInsert = "INSERT INTO sellers VALUES (DEFAULT, ?, ? ,? ,?)";
 
 		db.prepareStatement(sqlInsert);
+
 		db.setString(1, seller.getName());
 		db.setString(2, seller.getEmail());
 		db.setString(3, seller.getFone());
@@ -48,7 +48,7 @@ public class MySQLSellerDAO implements SellerDAO {
 	public boolean delete(Seller seller) throws ModelException {
 		DBHandler db = new DBHandler();
 
-		String sqlDelete = " DELETE FROM sellers " + " WHERE id = ?;";
+		String sqlDelete = " DELETE FROM sellers WHERE id = ?";
 
 		db.prepareStatement(sqlDelete);
 		db.setInt(1, seller.getId());
@@ -63,8 +63,8 @@ public class MySQLSellerDAO implements SellerDAO {
 
 		List<Seller> sellers = new ArrayList<Seller>();
 
-		String sqlQuery = "SELECT s.id AS ID, s.name AS Name, s.email as Email, s.fone as Fone,"
-				+ "c.id as company_id FROM sellers s INNER JOIN companies c on s.company_id = c.id;";
+		// Declara uma instrução SQL
+		String sqlQuery = "select s.id as ID, s.name as Name, s.email as Email, s.fone as Fone, c.id as company_id from sellers s inner join companies c on s.company_id = c.id";
 
 		db.createStatement();
 
@@ -84,19 +84,21 @@ public class MySQLSellerDAO implements SellerDAO {
 
 		DBHandler db = new DBHandler();
 
-		String sql = "SELECT * FROM sellers WHERE id = ?;";
+		String sql = "SELECT * FROM sellers WHERE id = ?";
 
 		db.prepareStatement(sql);
+
 		db.setInt(1, id);
 		db.executeQuery();
 
-		Seller p = null;
+		Seller s = null;
+
 		while (db.next()) {
-			p = createSeller(db);
+			s = createSeller(db);
 			break;
 		}
 
-		return p;
+		return s;
 	}
 
 	private Seller createSeller(DBHandler db) throws ModelException {
@@ -108,9 +110,9 @@ public class MySQLSellerDAO implements SellerDAO {
 		CompanyDAO companyDAO = DAOFactory.createDAO(CompanyDAO.class);
 
 		Company company = companyDAO.findById(db.getInt("company_id"));
+
 		s.setCompany(company);
 
 		return s;
 	}
-
 }

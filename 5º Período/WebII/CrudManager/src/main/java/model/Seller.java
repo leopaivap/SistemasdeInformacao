@@ -1,6 +1,7 @@
 package model;
 
 public class Seller {
+
 	private int id;
 	private String name, email, fone;
 	private Company company;
@@ -8,7 +9,7 @@ public class Seller {
 	public Seller() {
 		this(0);
 	}
-	
+
 	public Seller(int id) {
 		this.id = id;
 		setName("");
@@ -55,5 +56,4 @@ public class Seller {
 	public void setCompany(Company company) {
 		this.company = company;
 	}
-
 }
