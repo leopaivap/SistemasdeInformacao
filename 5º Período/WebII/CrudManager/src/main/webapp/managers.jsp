@@ -69,7 +69,7 @@
 								<td>${manager.getCompany().getName()}</td>
 
 								<td class="actions"><a class="btn btn-info btn-xs"
-									href="${pageContext.request.contextPath}/manager/update?managerId=${manager.getId()}">
+									href="${pageContext.request.contextPath}/manager/update?manager_id=${manager.getId()}">
 										<span class="glyphicon glyphicon-edit"></span>
 								</a></td>
 

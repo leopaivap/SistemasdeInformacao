@@ -17,12 +17,13 @@
 		<form action="${pageContext.request.contextPath}/manager/${action}"
 			method="POST">
 
-			<input type="hidden" name="manganer-id" value="${managerToEdit.getId()}">
+			<input type="hidden" name="manager_id"
+				value="${managerToEdit.getId()}">
 
 			<div class="row">
 				<div class="form-group col-md-6">
 					<label for="content">Nome</label> <input type="text"
-						class="form-control" id="manager-name" name="manager-name"
+						class="form-control" id="manager_name" name="manager_name"
 						autofocus="autofocus" placeholder="Nome do Gerente" required
 						oninvalid="this.setCustomValidity('Por favor, informe o Nome do gerente')"
 						oninput="setCustomValidity('')" value="${managerToEdit.getName()}">
@@ -30,35 +31,40 @@
 
 				<div class="form-group col-md-6">
 					<label for="content">Email</label> <input type="email"
-						class="form-control" id="manager-email" name="manager-email"
+						class="form-control" id="manager_email" name="manager_email"
 						autofocus="autofocus" placeholder="Email do Gerente" required
 						oninvalid="this.setCustomValidity('Por favor, informe o Email do gerente')"
-						oninput="setCustomValidity('')" value="${managerToEdit.getEmail()}">
+						oninput="setCustomValidity('')"
+						value="${managerToEdit.getEmail()}">
 				</div>
 
 				<div class="form-group col-md-6">
 					<label for="content">Telefone</label> <input type="text"
-						class="form-control" id="manager-fone" name="manager-fone"
+						class="form-control" id="manager_fone" name="manager_fone"
 						autofocus="autofocus" placeholder="Telefone do Gerente" required
 						oninvalid="this.setCustomValidity('Por favor, informe o Telefone do gerente.')"
 						oninput="setCustomValidity('')" value="${managerToEdit.getFone()}">
 				</div>
-				
+
 				<div class="form-group col-md-4">
-						<label for="gender">Sexo</label>
-						<select id="gender" class="form-control selectpicker" name="gender" 
-							    required oninvalid="this.setCustomValidity('Por favor, informe o sexo')"
-							    oninput="setCustomValidity('')">
-					      <option value="" disabled ${not empty manager ? "" : "selected"}>Selecione o sexo</option>
-						  <option value="F" ${manager.getGender() == 'F' ? "selected" : ""}>Feminino</option>
-						  <option value="M" ${manager.getGender() == 'M' ? "selected" : ""}>Masculino</option>
-						</select>
-					</div>
+					<label for="manager_sexo">Sexo</label> <select id="manager_sexo"
+						class="form-control selectpicker" name="manager_sexo" required
+						oninvalid="this.setCustomValidity('Por favor, informe o sexo')"
+						oninput="setCustomValidity('')">
+						<option value="" disabled ${not emptymanagerToEdit ? "" : "selected"}>Selecione
+							o sexo</option>
+						<option value="F"
+							${managerToEdit.getGender() == 'F' ? "selected" : ""}>Feminino</option>
+						<option value="M"
+							${managerToEdit.getGender() == 'M' ? "selected" : ""}>Masculino</option>
+					</select>
+				</div>
+
 
 				<div class="form-group col-md-6">
-					<label for="manager-company">Empresa</label> <select
-						id="manager-company" class="form-control selectpicker"
-						name="manager-company" required
+					<label for="manager_company">Empresa</label> <select
+						id="manager_company" class="form-control selectpicker"
+						name="manager_company" required
 						oninvalid="this.setCustomValidity('Por favor, informe a Empresa.')"
 						oninput="setCustomValidity('')">
 						<option value=""disabled ${notemptymanagerToEdit ? "" : "selected"}>Selecione
@@ -70,8 +76,8 @@
 						</c:forEach>
 					</select>
 				</div>
-				
-			
+
+
 			</div>
 
 			<hr />

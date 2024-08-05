@@ -66,7 +66,7 @@ public class ManagersController extends HttpServlet {
 			break;
 		}
 		case "/crud-manager/manager/delete": {
-			deleteManager(req, resp);
+			deleteManager(req);
 			ControllerUtil.redirect(resp, req.getContextPath() + "/managers");
 			break;
 		}
@@ -76,10 +76,9 @@ public class ManagersController extends HttpServlet {
 		}
 	}
 
-	private void deleteManager(HttpServletRequest req, HttpServletResponse resp) {
+	private void deleteManager(HttpServletRequest req) {
 
 		String managerIdParameter = req.getParameter("id");
-
 		int managerId = Integer.parseInt(managerIdParameter);
 
 		ManagerDAO dao = DAOFactory.createDAO(ManagerDAO.class);
@@ -125,7 +124,7 @@ public class ManagersController extends HttpServlet {
 
 	private void updateManager(HttpServletRequest req) {
 
-		String managerIdStr = req.getParameter("managerId");
+		String managerIdStr = req.getParameter("manager_id");
 		int managerId = Integer.parseInt(managerIdStr);
 
 		Manager manager = createManager(req, managerId);
@@ -140,13 +139,13 @@ public class ManagersController extends HttpServlet {
 		} catch (ModelException e) {
 			e.printStackTrace(); // log
 			ControllerUtil.errorMessage(req, e.getMessage());
-		
-	}
+
+		}
 
 	}
 
 	private void loadManager(HttpServletRequest req) {
-		String managerIdStr = req.getParameter("managerId");
+		String managerIdStr = req.getParameter("manager_id");
 		int managerId = Integer.parseInt(managerIdStr);
 
 		ManagerDAO dao = DAOFactory.createDAO(ManagerDAO.class);
@@ -190,11 +189,11 @@ public class ManagersController extends HttpServlet {
 
 	private Manager createManager(HttpServletRequest req, int managerId) {
 
-		String managerName = req.getParameter("manager-name");
-		String managerEmail = req.getParameter("manager-email");
-		String managerFone = req.getParameter("manager-fone");
-		String managerSexo = req.getParameter("manager-sexo");
-		String managerCompany = req.getParameter("manager-company");
+		String managerName = req.getParameter("manager_name");
+		String managerEmail = req.getParameter("manager_email");
+		String managerFone = req.getParameter("manager_fone");
+		String managerSexo = req.getParameter("manager_sexo");
+		String managerCompany = req.getParameter("manager_company");
 		int managerCompanyId = Integer.parseInt(managerCompany);
 
 		Manager manager;

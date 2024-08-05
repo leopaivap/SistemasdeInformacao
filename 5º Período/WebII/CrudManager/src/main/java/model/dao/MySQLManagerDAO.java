@@ -15,7 +15,7 @@ public class MySQLManagerDAO implements ManagerDAO {
 
 		DBHandler db = new DBHandler();
 
-		String sqlInsert = "INSERT INTO managers VALUES (DEFAULT, ?, ? ,? ,?, ?)";
+		String sqlInsert = "INSERT INTO managers VALUES (DEFAULT, ?, ?, ?, ?, ?);";
 
 		db.prepareStatement(sqlInsert);
 
@@ -33,7 +33,7 @@ public class MySQLManagerDAO implements ManagerDAO {
 
 		DBHandler db = new DBHandler();
 
-		String sqlUpdate = "UPDATE managers SET name = ?, email = ?, fone = ?, sexo = ?,company_id = ? where id = ?";
+		String sqlUpdate = "UPDATE managers SET nome = ?, email = ?, fone = ?, sexo = ?, company_id = ? where id = ?";
 
 		db.prepareStatement(sqlUpdate);
 
@@ -67,14 +67,14 @@ public class MySQLManagerDAO implements ManagerDAO {
 		List<Manager> managers = new ArrayList<Manager>();
 
 		// Declara uma instrução SQL
-		String sqlQuery = "SELECT m.id as id, m.name as Nome, m.email as Email, m.fone as Fone, m.sexo as Sexo, c.id as company_id from managers m inner join companies c on m.company_id = c.id;";
+		String sqlQuery = "SELECT m.id as id, m.nome as Nome, m.email as Email, m.fone as Fone, m.sexo as Sexo, c.id as company_id from managers m inner join companies c on m.company_id = c.id;";
 
 		db.createStatement();
 
 		db.executeQuery(sqlQuery);
 
 		while (db.next()) {
-			Manager m = createSeller(db);
+			Manager m = createManager(db);
 
 			managers.add(m);
 		}
@@ -97,14 +97,14 @@ public class MySQLManagerDAO implements ManagerDAO {
 		Manager m = null;
 
 		while (db.next()) {
-			m = createSeller(db);
+			m = createManager(db);
 			break;
 		}
 
 		return m;
 	}
 
-	private Manager createSeller(DBHandler db) throws ModelException {
+	private Manager createManager(DBHandler db) throws ModelException {
 		Manager m = new Manager(db.getInt("id"));
 		m.setName(db.getString("nome"));
 		m.setEmail(db.getString("email"));
