@@ -51,7 +51,7 @@
 						class="form-control selectpicker" name="manager_sexo" required
 						oninvalid="this.setCustomValidity('Por favor, informe o sexo')"
 						oninput="setCustomValidity('')">
-						<option value="" disabled ${not emptymanagerToEdit ? "" : "selected"}>Selecione
+						<option value="" disabled ${empty managerToEdit ? "selected" : ""}>Selecione
 							o sexo</option>
 						<option value="F"
 							${managerToEdit.getGender() == 'F' ? "selected" : ""}>Feminino</option>
