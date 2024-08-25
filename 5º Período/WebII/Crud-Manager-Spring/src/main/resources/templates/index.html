@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<div th:replace="cabecalho :: head"></div>
+
+<title>Crud Manager - Usuários</title>
+</head>
+<body>
+	<div class="container my-2">
+		<h1>Usuários</h1>
+		<div>
+			<a th:href="@{users/form}"
+				class="btn btn-primary btn-sm mb-3 float-right"> Adicionar
+				Usuário </a>
+		</div>
+		<table class="table table-striped table-responsive-md">
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Email</th>
+					<th>Gênero</th>
+					<th>Endereço</th>
+					<th>Ações</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="user : ${users}">
+					<td th:text="${user.getName()}"></td>
+					<td th:text="${user.getEmail()}"></td>
+					<td th:text="${user.getGender()}"></td>
+					<td th:text="${user.getAddress().getPlace() + ', nº ' + user.getAddress().getNumber()}"></td>
+					<td><a class="btn btn-primary"
+						th:href="@{/users/update/{id}(id = ${user.getId()})}">Alterar</a>
+						<a class="btn btn-danger"
+						th:href="@{/users/delete/{id}(id = ${user.getId()})}">Excluir</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

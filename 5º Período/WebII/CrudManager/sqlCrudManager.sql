@@ -32,11 +32,33 @@ CREATE TABLE IF NOT EXISTS `companies` (
   CONSTRAINT `companies_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
--- Copiando dados para a tabela crud_manager.companies: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela crud_manager.companies: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `companies` DISABLE KEYS */;
 INSERT INTO `companies` (`id`, `name`, `role`, `start`, `end`, `user_id`) VALUES
 	(1, 'Coetagri', 'A', '2024-07-12', '2024-07-12', 1);
 /*!40000 ALTER TABLE `companies` ENABLE KEYS */;
+
+-- Copiando estrutura para tabela crud_manager.managers
+DROP TABLE IF EXISTS `managers`;
+CREATE TABLE IF NOT EXISTS `managers` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(128) NOT NULL,
+  `email` varchar(128) NOT NULL,
+  `fone` varchar(11) NOT NULL,
+  `sexo` enum('M','F') DEFAULT NULL,
+  `company_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `company_id` (`company_id`),
+  CONSTRAINT `managers_ibfk_1` FOREIGN KEY (`company_id`) REFERENCES `companies` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+
+-- Copiando dados para a tabela crud_manager.managers: ~2 rows (aproximadamente)
+/*!40000 ALTER TABLE `managers` DISABLE KEYS */;
+INSERT INTO `managers` (`id`, `nome`, `email`, `fone`, `sexo`, `company_id`) VALUES
+	(1, 'gerente 01 ', 'email@mail.com', '35941515', 'M', 1),
+	(3, 'outro gerente', 'mail@mail.com', '3599514514', 'M', 1),
+	(5, 'Novo Gerente', 'mail@mail.com', '3598514511', 'F', 1);
+/*!40000 ALTER TABLE `managers` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela crud_manager.posts
 DROP TABLE IF EXISTS `posts`;
@@ -50,12 +72,11 @@ CREATE TABLE IF NOT EXISTS `posts` (
   CONSTRAINT `posts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
 
--- Copiando dados para a tabela crud_manager.posts: ~8 rows (aproximadamente)
+-- Copiando dados para a tabela crud_manager.posts: ~7 rows (aproximadamente)
 /*!40000 ALTER TABLE `posts` DISABLE KEYS */;
 INSERT INTO `posts` (`id`, `content`, `post_date`, `user_id`) VALUES
 	(1, 'Olá do Emerson', '2024-07-12', 1),
 	(2, 'Olá da Luiza', '2024-07-12', 2),
-	(3, 'Olá da Denise', '2024-07-12', 3),
 	(4, 'Olá do Noé', '2024-07-12', 4),
 	(5, 'Olá da Rosânia', '2024-07-12', 5),
 	(6, 'Olá da Rosânia 1', '2024-07-12', 5),
@@ -74,12 +95,12 @@ CREATE TABLE IF NOT EXISTS `sellers` (
   PRIMARY KEY (`id`),
   KEY `company_id` (`company_id`),
   CONSTRAINT `sellers_ibfk_1` FOREIGN KEY (`company_id`) REFERENCES `companies` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
 -- Copiando dados para a tabela crud_manager.sellers: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `sellers` DISABLE KEYS */;
 INSERT INTO `sellers` (`id`, `name`, `email`, `fone`, `company_id`) VALUES
-	(3, 'leonardo', 'EMAIL@MAIL.COM.br', '515', 1);
+	(4, 'Vendedor Teste 2', 'vendedor@gmail.com', '3599511561', 1);
 /*!40000 ALTER TABLE `sellers` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela crud_manager.users
