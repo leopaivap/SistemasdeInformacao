@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <div th:replace="head :: head"></div>
+
+    <title>Events Crud Manager - Form Participante</title>
+</head>
+
+<body>
+    <div th:replace="navbar :: div-nav"></div>
+    <div class="container my-4">
+        <h2 class="mb-4">Participante</h2>
+
+        <form th:action="@{/participants/register}" method="POST" th:object="${participant}">
+            <input type="hidden" th:field="*{id}">
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Nome</label>
+                        <input type="text" id="name" placeholder="Nome do participante" class="form-control"
+                            th:field="*{name}">
+                        <div class="form-text text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="place" class="form-label">E-mail</label>
+                        <input type="text" id="place" placeholder="E-mail do participante" class="form-control"
+                            th:field="*{email}">
+                        <div class="form-text text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="event" class="form-label">Evento</label>
+                        <select name="event" class="form-control" th:field="*{event}">
+                            <option value="" th:text="'Selecione um Evento'">Selecione um Evento</option>
+                            <th:block th:each="event : ${events}">
+                                <option th:value="${event.id}" th:text="${event.name}"
+                                    th:selected="${event.id == participant.event?.id}"></option>
+                            </th:block>
+                        </select>
+                        <div class="form-text text-danger" th:if="${#fields.hasErrors('event')}" th:errors="*{event}">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="ticketType" class="form-label">Ingresso</label>
+                        <input type="text" id="ticketType" placeholder="Tipo de ingresso" class="form-control"
+                            th:field="*{ticketType}">
+                        <div class="form-text text-danger" th:if="${#fields.hasErrors('ticketType')}"
+                            th:errors="*{ticketType}"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-end mt-4">
+                <button type="submit" class="btn btn-primary">Salvar</button>
+            </div>
+        </form>
+
+        <hr class="mt-5">
+
+        <div class="text-end">
+            <a th:href="@{/participants}" class="btn btn-outline-secondary">Voltar para Participantes</a>
+        </div>
+    </div>
+</body>
+
+</html>

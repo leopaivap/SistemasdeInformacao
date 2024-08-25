@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <div th:replace="head :: head"></div>
+
+    <title>Events Crud Manager - Form Evento</title>
+</head>
+
+<body>
+    <div th:replace="navbar :: div-nav"></div>
+    <div class="container my-4">
+        <h2 class="mb-4">Evento</h2>
+
+        <form th:action="@{/events/register}" method="POST" th:object="${event}">
+            <input type="hidden" th:field="*{id}">
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Nome</label>
+                        <input type="text" id="name" placeholder="Nome do evento" class="form-control" th:field="*{name}">
+                        <div class="form-text text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="place" class="form-label">Local</label>
+                        <input type="text" id="place" placeholder="Local do evento" class="form-control" th:field="*{place}">
+                        <div class="form-text text-danger" th:if="${#fields.hasErrors('place')}" th:errors="*{place}"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="date" class="form-label">Data</label>
+                        <input type="text" id="date" placeholder="Data do evento" class="form-control" th:field="*{date}">
+                        <div class="form-text text-danger" th:if="${#fields.hasErrors('date')}" th:errors="*{date}"></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="capacity" class="form-label">Capacidade</label>
+                        <input type="text" id="capacity" placeholder="Capacidade do evento" class="form-control" th:field="*{capacity}">
+                        <div class="form-text text-danger" th:if="${#fields.hasErrors('capacity')}" th:errors="*{capacity}"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-end mt-4">
+                <button type="submit" class="btn btn-primary">Salvar</button>
+            </div>
+        </form>
+
+        <hr class="mt-5">
+
+        <div class="text-end">
+            <a th:href="@{/events}" class="btn btn-outline-secondary">Voltar para Eventos</a>
+        </div>
+    </div>
+</body>
+
+</html>

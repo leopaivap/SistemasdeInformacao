@@ -1,0 +1,11 @@
+<th:block th:fragment="div-nav">
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" th:href="@{/home}">Gerenciador de Eventos</a>
+            <div class="d-flex">
+                <a class="nav-link active text-light" th:href="@{/events}">Gerenciar Eventos</a>
+                <a class="nav-link text-light" th:href="@{/participants}">Gerenciar Participantes</a>
+            </div>
+        </div>
+    </nav>
+</th:block>
