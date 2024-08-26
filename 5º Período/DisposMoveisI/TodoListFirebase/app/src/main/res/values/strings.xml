@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Tarefas</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_form">Cadastrar Atividade</string>
+    <string name="task_description">Descrição da Atividade</string>
+    <string name="save_task">Salvar</string>
+    <string name="task_saved">Tarefa salva</string>
+    <string name="task_description_empty">Descrição da tarefa não pode ser vazia</string>
+    <string name="task_date">Limite</string>
+    <string name="fab_description">Adiconar Tarefa</string>
+    <string name="task_done">Tarefa concluída</string>
+    <string name="task_updated">Tarefa atualizada</string>
+    <string name="delete_task">Concluir Tafera</string>
+</resources>

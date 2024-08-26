@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "371957705713",
+    "project_id": "tarefas-6f87a",
+    "storage_bucket": "tarefas-6f87a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:371957705713:android:3376b732a7aa7735e63250",
+        "android_client_info": {
+          "package_name": "br.edu.ifsuldeminas.mch.tarefas"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGL8JFhs5cilvgSYyd8BhKE_ljw3nJax0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
