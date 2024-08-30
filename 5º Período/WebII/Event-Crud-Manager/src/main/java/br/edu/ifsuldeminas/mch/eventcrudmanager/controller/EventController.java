@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import br.edu.ifsuldeminas.mch.eventcrudmanager.repo.EventRepository;
+import br.edu.ifsuldeminas.mch.eventcrudmanager.repo.ParticipantRepository;
 import jakarta.validation.Valid;
 import br.edu.ifsuldeminas.mch.eventcrudmanager.model.Event;
 
@@ -21,6 +22,9 @@ public class EventController {
 
 	@Autowired
 	private EventRepository eventRepository;
+
+	@Autowired
+	private ParticipantRepository participantRepository;
 
 	@GetMapping("/events")
 	public String listEvents(Model model) {
@@ -36,8 +40,7 @@ public class EventController {
 	}
 
 	@PostMapping("/events/register")
-	public String eventNew(@Valid @ModelAttribute("event") Event event,
-			BindingResult erros) {
+	public String eventNew(@Valid @ModelAttribute("event") Event event, BindingResult erros) {
 
 		if (erros.hasErrors()) {
 			return "event_form";
@@ -49,12 +52,10 @@ public class EventController {
 	}
 
 	@GetMapping("/events/update/{id}")
-	public String eventUpdate(@PathVariable("id") Integer id,
-			Model model) {
+	public String eventUpdate(@PathVariable("id") Integer id, Model model) {
 
 		Optional<Event> eventOpt = eventRepository.findById(id);
 		Event event = eventOpt.orElse(new Event());
-
 
 		model.addAttribute("event", event);
 
@@ -62,7 +63,14 @@ public class EventController {
 	}
 
 	@GetMapping("/events/delete/{id}")
-	public String eventDelete(@PathVariable("id") Integer id) {
+	public String eventDelete(@PathVariable("id") Integer id, Model model) {
+
+		if (participantRepository.existsByEventId(id)) {
+			Optional<Event> evento = eventRepository.findById(id);
+			model.addAttribute("errorMessage", "O evento: " + evento.get().getName()
+					+ " não pode ser removido, pois existem participantes cadastrados.");
+			return listEvents(model);
+		}
 
 		eventRepository.delete(new Event(id));
 
