@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Conversor de Bases</title>
+</head>
+
+<body>
+    <header class="text-center my-4">
+        <h3>Conversor de Bases</h3>
+    </header>
+
+    <main class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        Conversor Decimal
+                    </div>
+                    <div class="card-body">
+                        <input type="text" id="inputValue1" class="form-control mb-2" placeholder="Insira o número">
+                        <button class="btn btn-primary" onclick="convertFromDecimal()">Converter</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        Conversor Binário
+                    </div>
+                    <div class="card-body">
+                        <input type="text" id="inputValue2" class="form-control mb-2" placeholder="Insira o número">
+                        <button class="btn btn-primary" onclick="convertFromBinary()">Converter</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        Conversor Hexadecimal
+                    </div>
+                    <div class="card-body">
+                        <input type="text" id="inputValue3" class="form-control mb-2" placeholder="Insira o número">
+                        <button class="btn btn-primary" onclick="convertFromHex()">Converter</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        Conversor Octal
+                    </div>
+                    <div class="card-body">
+                        <input type="text" id="inputValue4" class="form-control mb-2" placeholder="Insira o número">
+                        <button class="btn btn-primary" onclick="convertFromOctal()">Converter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <script>
+        function convertFromDecimal() {
+            const decimalValue = parseInt(document.getElementById('inputValue1').value);
+            const binary = decimalToBinary(decimalValue);
+            const hex = decimalToHex(decimalValue);
+            const octal = decimalToOctal(decimalValue);
+
+            alert(`Resultado:\nOctal: ${octal}\nBinário: ${binary}\nHexadecimal: ${hex}`);
+        }
+
+        function convertFromBinary() {
+            const binaryValue = document.getElementById('inputValue2').value;
+            const decimal = binaryToDecimal(binaryValue);
+            const hex = decimalToHex(decimal);
+            const octal = decimalToOctal(decimal);
+
+            alert(`Resultado:\nDecimal: ${decimal}\nHexadecimal: ${hex}\nOctal: ${octal}`);
+        }
+
+        function convertFromHex() {
+            const hexValue = document.getElementById('inputValue3').value;
+            const decimal = hexToDecimal(hexValue);
+            const binary = decimalToBinary(decimal);
+            const octal = decimalToOctal(decimal);
+
+            alert(`Resultado:\nBinário: ${binary}\nDecimal: ${decimal}\nOctal: ${octal}`);
+        }
+
+        function convertFromOctal() {
+            const octalValue = document.getElementById('inputValue4').value;
+            const decimal = octalToDecimal(octalValue);
+            const binary = decimalToBinary(decimal);
+            const hex = decimalToHex(decimal);
+
+            alert(`Resultado:\nBinário: ${binary}\nDecimal: ${decimal}\nHexadecimal: ${hex}`);
+        }
+
+        function decimalToBinary(decimal) {
+            let binary = '';
+            while (decimal > 0) {
+                binary = (decimal % 2) + binary;
+                decimal = Math.floor(decimal / 2);
+            }
+            return binary || '0';
+        }
+
+        function decimalToHex(decimal) {
+            let hex = '';
+            const hexChars = '0123456789ABCDEF';
+            while (decimal > 0) {
+                hex = hexChars[decimal % 16] + hex;
+                decimal = Math.floor(decimal / 16);
+            }
+            return hex || '0';
+        }
+
+        function decimalToOctal(decimal) {
+            let octal = '';
+            while (decimal > 0) {
+                octal = (decimal % 8) + octal;
+                decimal = Math.floor(decimal / 8);
+            }
+            return octal || '0';
+        }
+
+        function binaryToDecimal(binary) {
+            let decimal = 0;
+            const length = binary.length;
+            for (let i = 0; i < length; i++) {
+                decimal += (binary[length - 1 - i] === '1' ? 1 : 0) * Math.pow(2, i);
+            }
+            return decimal;
+        }
+
+        function hexToDecimal(hex) {
+            const hexChars = '0123456789ABCDEF';
+            let decimal = 0;
+            const length = hex.length;
+            for (let i = 0; i < length; i++) {
+                decimal += hexChars.indexOf(hex[length - 1 - i].toUpperCase()) * Math.pow(16, i);
+            }
+            return decimal;
+        }
+
+        function octalToDecimal(octal) {
+            let decimal = 0;
+            const length = octal.length;
+            for (let i = 0; i < length; i++) {
+                decimal += (parseInt(octal[length - 1 - i], 10)) * Math.pow(8, i);
+            }
+            return decimal;
+        }
+    </script>
+</body>
+
+</html>
