@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Deployment ML Project</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
+
+</head>
+
+<body style="background: #000;">
+  <div class="login">
+    <h1>Classificador de espécies IRIS - 2024</h1>
+
+    <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}" method="post">
+      <input type="text" name="sl" placeholder="Sepal length (cm)" required="required" />
+      <input type="text" name="sw" placeholder="Sepal width (cm)" required="required" />
+      <input type="text" name="pl" placeholder="Petal length (cm)" required="required" />
+      <input type="text" name="pw" placeholder="Petal length (cm)" required="required" />
+
+
+      <button type="submit" class="btn btn-primary btn-block btn-large">Classificar IRIS</button>
+    </form>
+
+    <br>
+    <br>
+    {{ prediction_text }}
+
+  </div>
+
+
+</body>
+
+</html>
