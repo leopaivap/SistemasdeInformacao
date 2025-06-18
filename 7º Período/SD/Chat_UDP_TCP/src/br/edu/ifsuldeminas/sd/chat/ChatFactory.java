@@ -13,8 +13,7 @@ public class ChatFactory {
 	private static boolean isTCP;
 
 	public static Sender build(String remoteHost, int remotePort, int localPort, MessageContainer container,
-			boolean isTCP)
-			throws ChatException {
+			boolean isTCP) throws ChatException {
 
 		ChatFactory.remoteHost = remoteHost;
 		ChatFactory.remotePort = remotePort;
@@ -22,16 +21,18 @@ public class ChatFactory {
 		ChatFactory.container = container;
 		ChatFactory.isTCP = isTCP;
 
-		if (ChatFactory.isTCP) {
-			return new TCPConnector(ChatFactory.remoteHost, ChatFactory.remotePort, ChatFactory.localPort,
-					ChatFactory.container);
-		} else {
-			try {
+		try {
+			if (ChatFactory.isTCP) {
+				new TCPReceiver(ChatFactory.localPort, ChatFactory.container);
+				return new TCPSender(InetAddress.getByName(ChatFactory.remoteHost), ChatFactory.remotePort);
+			} else {
+
 				new UDPReceiver(ChatFactory.localPort, DEFAULT_RECEIVER_BUFFER_SIZE, ChatFactory.container);
 				return new UDPSender(InetAddress.getByName(ChatFactory.remoteHost), ChatFactory.remotePort);
-			} catch (UnknownHostException unknownHostException) {
-				throw new ChatException("Servidor não conhecido.", unknownHostException);
+
 			}
+		} catch (UnknownHostException unknownHostException) {
+			throw new ChatException("The receiver is unknown", unknownHostException);
 		}
 	}
 }
